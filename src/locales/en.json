@@ -1,0 +1,439 @@
+{
+  "app": {
+    "name": "LoyalFlow"
+  },
+  "common": {
+    "loading": "Loading...",
+    "comingSoon": "Coming soon",
+    "time": {
+      "now": "just now",
+      "minutes": "{n} min ago",
+      "hours": "{n} h ago",
+      "days": "{n} d ago"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "login": "Log in",
+    "dashboard": "Dashboard"
+  },
+  "landing": {
+    "nav": {
+      "benefits": "Benefits",
+      "howItWorks": "How it works",
+      "audience": "Who it's for",
+      "login": "Log in",
+      "cta": "Try it for free"
+    },
+    "hero": {
+      "eyebrow": "Digital loyalty cards for small businesses",
+      "titleLine1": "Customers who visit",
+      "titleHighlight": "once",
+      "titleLine2": "become regulars.",
+      "subtitle": "LoyalFlow replaces paper loyalty cards with a digital card, QR scanning, and automatic rewards — so every repeat visit is tracked, rewarded, and turned into a habit.",
+      "subtitleExtra": "No printing, no lost cards, no manual bookkeeping — you see everything your customers earn and redeem live in one dashboard, while marketing, birthday perks, and referrals run automatically in the background.",
+      "ctaPrimary": "Create a free account",
+      "ctaSecondary": "See how it works",
+      "trust": "Free to start · No paperwork · Set up in 5 minutes",
+      "card": {
+        "business": "Aroma Café",
+        "holder": "Ana Anić",
+        "pointsLabel": "Points",
+        "points": "180",
+        "progressLabel": "To next reward",
+        "reward": "Free coffee",
+        "member": "Gold member"
+      }
+    },
+    "stats": {
+      "srLabel": "Key numbers about the LoyalFlow platform",
+      "items": [
+        { "value": "40", "suffix": "%", "label": "more returning customers" },
+        { "value": "5", "suffix": " min", "label": "to the first digital card" },
+        { "value": "0", "suffix": " €", "label": "needed to get started" },
+        { "value": "24", "suffix": "/7", "label": "automatic marketing and reminders" }
+      ]
+    },
+    "audience": {
+      "title": "Who LoyalFlow is for",
+      "subtitle": "If you have customers who come back, LoyalFlow helps you keep them — whatever your business.",
+      "items": [
+        { "label": "Cafés" },
+        { "label": "Restaurants" },
+        { "label": "Hair salons" },
+        { "label": "Beauty salons" },
+        { "label": "Gyms & fitness" },
+        { "label": "Car washes" },
+        { "label": "Auto repair shops" },
+        { "label": "Bakeries & patisseries" },
+        { "label": "Hotels & apartments" },
+        { "label": "Dental clinics" }
+      ],
+      "more": "...and any service business with returning customers."
+    },
+    "benefits": {
+      "title": "Why small businesses switch to LoyalFlow",
+      "subtitle": "Everything you need to turn occasional customers into regulars — no extra staff or technical skills required.",
+      "items": [
+        {
+          "title": "Stronger customer loyalty",
+          "description": "Points, stamps, and rewards give customers a reason to come back instead of going to a competitor. Every visit is a step closer to the next reward."
+        },
+        {
+          "title": "No more paper cards",
+          "description": "The loyalty card lives on the customer's phone — it can't get lost or torn, and it's always ready to scan in seconds."
+        },
+        {
+          "title": "QR scan in seconds",
+          "description": "Staff scan the code, the customer earns points — no waiting at the register and no writing it down by hand."
+        },
+        {
+          "title": "Marketing on autopilot",
+          "description": "Birthday discounts, campaigns, and reminders go out automatically, with no extra work from you — while you run your business."
+        },
+        {
+          "title": "Real business insight",
+          "description": "A dashboard shows you who your most loyal customers are, how often they return, and which rewards they love most."
+        },
+        {
+          "title": "Friend referrals",
+          "description": "Happy customers bring new customers through the built-in referral program — both get rewarded, you get a new regular."
+        },
+        {
+          "title": "Birthday rewards",
+          "description": "Automatically send a special gift on a customer's birthday — a small gesture that leaves an impression and drives an extra visit."
+        },
+        {
+          "title": "Badges & tiers",
+          "description": "Bronze, silver, gold, platinum — customers compete for status, and you get increasingly engaged regulars."
+        }
+      ]
+    },
+    "how": {
+      "title": "How it works",
+      "subtitle": "From sign-up to a customer's first reward — in four steps.",
+      "steps": [
+        {
+          "title": "Create a free account",
+          "description": "Register your business and set up a loyalty program — points, stamps, discounts, or VIP tiers, whatever fits you."
+        },
+        {
+          "title": "The customer gets a digital card",
+          "description": "A card with a QR code arrives instantly, no app download required — it opens right in the phone's browser."
+        },
+        {
+          "title": "Scan the QR on every visit",
+          "description": "Points and stamps are added automatically, and the customer sees their progress live, right after scanning."
+        },
+        {
+          "title": "The customer returns for a reward",
+          "description": "You track everything — visits, rewards, and your most loyal customers — in one clear dashboard, with zero paperwork."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to turn your customers into regulars?",
+      "subtitle": "Join the small businesses that replaced paper cards with a digital experience customers love using.",
+      "button": "Create a free account",
+      "note": "No credit card required."
+    },
+    "footer": {
+      "tagline": "Digital loyalty cards for small businesses.",
+      "product": "Product",
+      "company": "Company",
+      "contact": "Contact",
+      "rights": "All rights reserved.",
+      "madeFor": "Made for small businesses, with care."
+    }
+  },
+  "business": {
+    "categories": {
+      "restaurant": "Restaurant",
+      "cafe": "Café",
+      "hair_salon": "Hair Salon",
+      "beauty_salon": "Beauty Salon",
+      "fitness": "Fitness Studio",
+      "gym": "Gym",
+      "car_wash": "Car Wash",
+      "auto_service": "Auto Service",
+      "retail": "Retail Store",
+      "bakery": "Bakery",
+      "patisserie": "Patisserie",
+      "hotel": "Hotel",
+      "apartment": "Apartments",
+      "dental": "Dental Clinic",
+      "veterinary": "Veterinary Clinic",
+      "other": "Other"
+    }
+  },
+  "auth": {
+    "fields": {
+      "email": "Email address",
+      "password": "Password",
+      "businessName": "Business name",
+      "category": "Category",
+      "categoryPlaceholder": "Choose a category",
+      "city": "City",
+      "firstName": "First name",
+      "lastName": "Last name"
+    },
+    "orContinueWith": "or continue with",
+    "google": "Continue with Google",
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Log in to your LoyalFlow account",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "submit": "Log in",
+      "noAccount": "Don't have an account?",
+      "registerLink": "Register your business"
+    },
+    "register": {
+      "title": "Create a free account",
+      "subtitle": "Set up your loyalty program in 5 minutes",
+      "termsNotice": "I accept the terms of service and privacy policy.",
+      "submit": "Create account",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in",
+      "asBusinessTab": "I'm registering a business",
+      "asCustomerTab": "I'm registering as a customer",
+      "confirmEmail": "We've sent you an email with a confirmation link. Click it to finish creating your account."
+    },
+    "forgotPassword": {
+      "title": "Forgot password",
+      "subtitle": "We'll send you a link to reset your password",
+      "submit": "Send reset link",
+      "confirmation": "If an account exists, we've sent a password reset link to your email.",
+      "backToLogin": "Back to login"
+    },
+    "resetPassword": {
+      "title": "New password",
+      "subtitle": "Set a new password for your account",
+      "newPassword": "New password",
+      "submit": "Save new password",
+      "success": "Your password has been changed. Redirecting you to login..."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Overview",
+      "scan": "Scan",
+      "customers": "Customers",
+      "programs": "Loyalty programs",
+      "rewards": "Rewards",
+      "marketing": "Marketing",
+      "analytics": "Analytics",
+      "settings": "Settings",
+      "soon": "Soon"
+    },
+    "roles": {
+      "owner": "Owner",
+      "admin": "Admin",
+      "employee": "Employee"
+    },
+    "topbar": {
+      "logout": "Log out"
+    },
+    "overview": {
+      "title": "Overview",
+      "welcomeBack": "Welcome back,"
+    },
+    "stats": {
+      "totalCustomers": "Total customers",
+      "activeCards": "Active cards",
+      "todayVisits": "Today's visits",
+      "rewardsIssued": "Rewards issued",
+      "rewardsRedeemed": "Rewards redeemed"
+    },
+    "chart": {
+      "title": "Visits this week"
+    },
+    "topCustomers": {
+      "title": "Top customers",
+      "empty": "No customers with cards yet.",
+      "visitsSuffix": "visits",
+      "pointsSuffix": "pts"
+    },
+    "activity": {
+      "title": "Recent activity",
+      "empty": "No activity to show yet."
+    },
+    "scan": {
+      "title": "Scan QR",
+      "instructions": "Point the camera at the customer's QR code.",
+      "startButton": "Start camera",
+      "amountLabel": "Bill amount (optional)",
+      "recordVisit": "Record visit",
+      "visitRecorded": "Visit recorded! +{n} points",
+      "pendingRedemptions": "Pending redemptions",
+      "confirmRedemption": "Confirm redemption",
+      "scanAnother": "Scan next"
+    },
+    "customers": {
+      "title": "Customers",
+      "empty": "No customers yet.",
+      "nameColumn": "Name",
+      "pointsColumn": "Points",
+      "joinedColumn": "Joined"
+    },
+    "programs": {
+      "title": "Loyalty programs",
+      "newButton": "New program",
+      "empty": "You don't have any loyalty programs yet.",
+      "editButton": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "inactiveLabel": "Inactive",
+      "form": {
+        "name": "Name",
+        "description": "Description",
+        "pointsPerVisit": "Points per visit",
+        "save": "Save",
+        "cancel": "Cancel",
+        "previewTitle": "Card preview",
+        "previewGoalLabel": "to reward"
+      }
+    },
+    "rewards": {
+      "title": "Rewards",
+      "newButton": "New reward",
+      "empty": "You don't have any rewards yet.",
+      "editButton": "Edit",
+      "activate": "Activate",
+      "deactivate": "Deactivate",
+      "inactiveLabel": "Inactive",
+      "pendingTitle": "Redemption requests",
+      "pendingEmpty": "No pending redemption requests.",
+      "confirmButton": "Confirm",
+      "form": {
+        "name": "Name",
+        "description": "Description",
+        "pointsCost": "Points cost",
+        "save": "Save",
+        "cancel": "Cancel",
+        "previewTitle": "Card preview",
+        "previewGoalLabel": "to reward"
+      }
+    },
+    "settings": {
+      "saveButton": "Save changes",
+      "saved": "Changes saved.",
+      "business": {
+        "title": "Business info",
+        "address": "Address",
+        "email": "Business email",
+        "phone": "Phone",
+        "description": "Short description"
+      },
+      "profile": {
+        "title": "My profile",
+        "phone": "Phone number",
+        "dateOfBirth": "Date of birth"
+      },
+      "password": {
+        "title": "Change password",
+        "newPassword": "New password",
+        "confirmPassword": "Confirm password",
+        "submit": "Change password",
+        "tooShort": "Password must be at least 8 characters.",
+        "mismatch": "Passwords don't match.",
+        "success": "Your password has been changed."
+      }
+    },
+    "analytics": {
+      "pointsEarned": "Points earned",
+      "pointsRedeemed": "Points redeemed",
+      "newCustomers": "New customers (30 days)",
+      "chartTitle": "Visits over the last 30 days",
+      "programs": {
+        "title": "Program performance",
+        "empty": "No loyalty programs to show yet.",
+        "nameColumn": "Program",
+        "cardsColumn": "Active cards",
+        "pointsColumn": "Points on cards"
+      }
+    },
+    "marketing": {
+      "managerOnly": "Marketing settings can only be edited by the business owner or admin.",
+      "birthday": {
+        "title": "Birthday reward",
+        "enabled": "Enabled",
+        "description": "Automatically offer customers a reward on their birthday.",
+        "rewardType": "Reward type",
+        "rewardTypes": {
+          "discount": "Discount",
+          "points_bonus": "Bonus points",
+          "free_item": "Free item",
+          "free_service": "Free service",
+          "gift": "Gift",
+          "none": "No reward"
+        },
+        "discountPercent": "Discount percent (%)",
+        "pointsAmount": "Points amount",
+        "daysBefore": "Days before birthday",
+        "validDays": "Valid for (days)"
+      },
+      "referral": {
+        "title": "Referral program",
+        "description": "Let customers invite friends and earn a reward.",
+        "enabled": "Enabled",
+        "disabled": "Disabled"
+      },
+      "promoCodes": {
+        "title": "Promo codes",
+        "newButton": "New code",
+        "empty": "You don't have any promo codes yet.",
+        "redeemedCount": "Redeemed {n}×",
+        "form": {
+          "code": "Code",
+          "description": "Description",
+          "discountPercent": "Discount (%)",
+          "discountAmount": "Discount (amount)",
+          "maxRedemptions": "Max redemptions",
+          "expiresAt": "Valid until",
+          "save": "Save",
+          "cancel": "Cancel"
+        }
+      }
+    }
+  },
+  "portal": {
+    "nav": {
+      "businesses": "Businesses",
+      "myCards": "My cards"
+    },
+    "directory": {
+      "title": "Browse businesses",
+      "subtitle": "Pick a business and grab a digital loyalty card.",
+      "empty": "No businesses available yet.",
+      "noMatches": "No businesses match the selected filters.",
+      "filters": {
+        "categoryLabel": "Category",
+        "categoryAll": "All categories",
+        "cityLabel": "City",
+        "cityPlaceholder": "Search by city..."
+      }
+    },
+    "businessDetail": {
+      "programsTitle": "Loyalty programs",
+      "joinButton": "Get card",
+      "alreadyJoined": "You already have this card",
+      "noPrograms": "This business doesn't have any active programs yet."
+    },
+    "myCards": {
+      "title": "My cards",
+      "empty": "You don't have any cards yet. Browse businesses and get your first one!",
+      "browseCta": "Browse businesses",
+      "pointsLabel": "points"
+    },
+    "cardDetail": {
+      "qrTitle": "Your QR code",
+      "qrHint": "Show this code to staff on your visit.",
+      "rewardsTitle": "Rewards",
+      "noRewards": "This business doesn't have any rewards yet.",
+      "redeemButton": "Request redemption",
+      "notEnoughPoints": "Not enough points",
+      "redeemRequested": "Request sent! Show this to staff on your next visit."
+    }
+  }
+}

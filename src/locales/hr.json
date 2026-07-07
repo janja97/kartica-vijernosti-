@@ -1,0 +1,439 @@
+{
+  "app": {
+    "name": "LoyalFlow"
+  },
+  "common": {
+    "loading": "Učitavanje...",
+    "comingSoon": "Uskoro dostupno",
+    "time": {
+      "now": "upravo sada",
+      "minutes": "prije {n} min",
+      "hours": "prije {n} h",
+      "days": "prije {n} d"
+    }
+  },
+  "nav": {
+    "home": "Početna",
+    "login": "Prijava",
+    "dashboard": "Nadzorna ploča"
+  },
+  "landing": {
+    "nav": {
+      "benefits": "Prednosti",
+      "howItWorks": "Kako radi",
+      "audience": "Za koga je",
+      "login": "Prijava",
+      "cta": "Isprobaj besplatno"
+    },
+    "hero": {
+      "eyebrow": "Digitalne kartice vjernosti za male obrtnike",
+      "titleLine1": "Kupci koji dođu samo",
+      "titleHighlight": "jednom",
+      "titleLine2": "postanu stalni gosti.",
+      "subtitle": "LoyalFlow zamjenjuje papirnate kartice vjernosti digitalnom karticom, QR skeniranjem i automatskim nagradama — tako da se svaki povratak kupca prati, nagrađuje i pretvara u naviku.",
+      "subtitleExtra": "Bez tiskanja, bez gubljenja, bez ručnog vođenja evidencije — sve što tvoji kupci skupljaju i osvajaju vidiš uživo u jednoj nadzornoj ploči, dok se marketing, rođendanske pogodnosti i preporuke odvijaju automatski u pozadini.",
+      "ctaPrimary": "Kreiraj besplatan račun",
+      "ctaSecondary": "Pogledaj kako radi",
+      "trust": "Besplatno za početak · Bez papirologije · Postavljeno za 5 minuta",
+      "card": {
+        "business": "Kafić Aroma",
+        "holder": "Ana Anić",
+        "pointsLabel": "Bodovi",
+        "points": "180",
+        "progressLabel": "Do sljedeće nagrade",
+        "reward": "Besplatna kava",
+        "member": "Zlatni član"
+      }
+    },
+    "stats": {
+      "srLabel": "Ključni brojevi o LoyalFlow platformi",
+      "items": [
+        { "value": "40", "suffix": "%", "label": "više kupaca koji se vraćaju" },
+        { "value": "5", "suffix": " min", "label": "do prve digitalne kartice" },
+        { "value": "0", "suffix": " €", "label": "potrebno za pokretanje" },
+        { "value": "24", "suffix": "/7", "label": "automatski marketing i podsjetnici" }
+      ]
+    },
+    "audience": {
+      "title": "Za koga je LoyalFlow",
+      "subtitle": "Ako imaš kupce koji se vraćaju, LoyalFlow ti pomaže da ih zadržiš — bez obzira na djelatnost.",
+      "items": [
+        { "label": "Kafići" },
+        { "label": "Restorani" },
+        { "label": "Frizerski saloni" },
+        { "label": "Kozmetički saloni" },
+        { "label": "Teretane i fitness" },
+        { "label": "Autoperionice" },
+        { "label": "Autoservisi" },
+        { "label": "Pekarnice i slastičarnice" },
+        { "label": "Hoteli i apartmani" },
+        { "label": "Stomatološke ordinacije" }
+      ],
+      "more": "...i svaka druga uslužna djelatnost s kupcima koji se vraćaju."
+    },
+    "benefits": {
+      "title": "Zašto obrtnici prelaze na LoyalFlow",
+      "subtitle": "Sve što ti treba da pretvoriš povremene kupce u stalne goste, bez dodatnog osoblja ili tehničkog znanja.",
+      "items": [
+        {
+          "title": "Veća lojalnost kupaca",
+          "description": "Bodovi, pečati i nagrade potiču kupce da se vraćaju umjesto da odu konkurenciji. Svaka posjeta postaje korak bliže sljedećoj nagradi."
+        },
+        {
+          "title": "Bez papirnatih kartica",
+          "description": "Kartica vjernosti živi u mobitelu kupca — ne gubi se, ne cijepa se, uvijek je pri ruci, spremna za skeniranje u sekundi."
+        },
+        {
+          "title": "QR skeniranje u par sekundi",
+          "description": "Zaposlenik skenira kod, kupac dobiva bodove — bez čekanja na blagajni i bez ručnog upisivanja u bilježnicu."
+        },
+        {
+          "title": "Automatski marketing",
+          "description": "Rođendanski popusti, kampanje i podsjetnici šalju se sami, bez tvoje intervencije — dok ti vodiš posao."
+        },
+        {
+          "title": "Uvid u poslovanje",
+          "description": "Nadzorna ploča ti pokazuje tko su tvoji najvjerniji kupci, koliko se često vraćaju i koje nagrade najviše vole."
+        },
+        {
+          "title": "Preporuke prijatelja",
+          "description": "Zadovoljni kupci dovode nove kupce kroz ugrađeni referral program — oboje dobivaju nagradu, ti dobivaš novog stalnog gosta."
+        },
+        {
+          "title": "Rođendanske nagrade",
+          "description": "Automatski pošalji poseban poklon na rođendan kupca — mali gest koji ostavlja dojam i potiče dodatnu posjetu."
+        },
+        {
+          "title": "Bedževi i razine",
+          "description": "Bronca, srebro, zlato, platina — kupci se natječu za status, a ti dobivaš sve angažiranije stalne goste."
+        }
+      ]
+    },
+    "how": {
+      "title": "Kako radi",
+      "subtitle": "Od registracije do prve nagrade kupca — u četiri koraka.",
+      "steps": [
+        {
+          "title": "Kreiraj besplatan račun",
+          "description": "Registriraj svoju tvrtku i postavi program vjernosti — bodovi, pečati, popusti ili VIP razine, po tvom izboru."
+        },
+        {
+          "title": "Kupac dobiva digitalnu karticu",
+          "description": "Kartica s QR kodom stiže odmah, bez preuzimanja ikakve aplikacije — otvara se izravno u pregledniku mobitela."
+        },
+        {
+          "title": "Skeniraj QR pri svakoj posjeti",
+          "description": "Bodovi i pečati se automatski pribrajaju, a kupac vidi napredak uživo, odmah nakon skeniranja."
+        },
+        {
+          "title": "Kupac se vraća po nagradu",
+          "description": "Ti pratiš sve — posjete, nagrade i najvjernije kupce — u jednoj preglednoj nadzornoj ploči, bez papirologije."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Spreman da tvoji kupci postanu stalni gosti?",
+      "subtitle": "Pridruži se obrtnicima koji su papirnate kartice zamijenili digitalnim iskustvom koje kupci vole koristiti.",
+      "button": "Kreiraj besplatan račun",
+      "note": "Nije potrebna kreditna kartica."
+    },
+    "footer": {
+      "tagline": "Digitalne kartice vjernosti za male obrtnike.",
+      "product": "Proizvod",
+      "company": "Tvrtka",
+      "contact": "Kontakt",
+      "rights": "Sva prava pridržana.",
+      "madeFor": "Napravljeno za male obrtnike, s ljubavlju."
+    }
+  },
+  "business": {
+    "categories": {
+      "restaurant": "Restoran",
+      "cafe": "Kafić",
+      "hair_salon": "Frizerski salon",
+      "beauty_salon": "Kozmetički salon",
+      "fitness": "Fitness studio",
+      "gym": "Teretana",
+      "car_wash": "Autopraonica",
+      "auto_service": "Autoservis",
+      "retail": "Trgovina",
+      "bakery": "Pekarnica",
+      "patisserie": "Slastičarnica",
+      "hotel": "Hotel",
+      "apartment": "Apartmani",
+      "dental": "Stomatološka ordinacija",
+      "veterinary": "Veterinarska stanica",
+      "other": "Ostalo"
+    }
+  },
+  "auth": {
+    "fields": {
+      "email": "Email adresa",
+      "password": "Lozinka",
+      "businessName": "Naziv tvrtke",
+      "category": "Djelatnost",
+      "categoryPlaceholder": "Odaberi djelatnost",
+      "city": "Grad",
+      "firstName": "Ime",
+      "lastName": "Prezime"
+    },
+    "orContinueWith": "ili nastavi s",
+    "google": "Nastavi s Google računom",
+    "login": {
+      "title": "Dobrodošla natrag",
+      "subtitle": "Prijavi se u svoj LoyalFlow račun",
+      "rememberMe": "Zapamti me",
+      "forgotPassword": "Zaboravljena lozinka?",
+      "submit": "Prijavi se",
+      "noAccount": "Nemaš račun?",
+      "registerLink": "Registriraj tvrtku"
+    },
+    "register": {
+      "title": "Kreiraj besplatan račun",
+      "subtitle": "Postavi svoj program vjernosti za 5 minuta",
+      "termsNotice": "Prihvaćam uvjete korištenja i pravila privatnosti.",
+      "submit": "Kreiraj račun",
+      "haveAccount": "Već imaš račun?",
+      "loginLink": "Prijavi se",
+      "asBusinessTab": "Registriram tvrtku",
+      "asCustomerTab": "Registriram se kao klijent",
+      "confirmEmail": "Poslali smo ti email s poveznicom za potvrdu računa. Klikni na nju da dovršiš registraciju."
+    },
+    "forgotPassword": {
+      "title": "Zaboravljena lozinka",
+      "subtitle": "Pošalji ćemo ti poveznicu za resetiranje lozinke",
+      "submit": "Pošalji poveznicu",
+      "confirmation": "Ako račun postoji, poslali smo poveznicu za reset lozinke na tvoj email.",
+      "backToLogin": "Natrag na prijavu"
+    },
+    "resetPassword": {
+      "title": "Nova lozinka",
+      "subtitle": "Postavi novu lozinku za svoj račun",
+      "newPassword": "Nova lozinka",
+      "submit": "Spremi novu lozinku",
+      "success": "Lozinka je uspješno promijenjena. Preusmjeravamo te na prijavu..."
+    }
+  },
+  "dashboard": {
+    "nav": {
+      "overview": "Pregled",
+      "scan": "Skeniraj",
+      "customers": "Korisnici",
+      "programs": "Programi vjernosti",
+      "rewards": "Nagrade",
+      "marketing": "Marketing",
+      "analytics": "Analitika",
+      "settings": "Postavke",
+      "soon": "Uskoro"
+    },
+    "roles": {
+      "owner": "Vlasnik",
+      "admin": "Administrator",
+      "employee": "Zaposlenik"
+    },
+    "topbar": {
+      "logout": "Odjava"
+    },
+    "overview": {
+      "title": "Pregled",
+      "welcomeBack": "Dobrodošli natrag,"
+    },
+    "stats": {
+      "totalCustomers": "Ukupno korisnika",
+      "activeCards": "Aktivne kartice",
+      "todayVisits": "Današnje posjete",
+      "rewardsIssued": "Dodijeljene nagrade",
+      "rewardsRedeemed": "Iskorištene nagrade"
+    },
+    "chart": {
+      "title": "Posjete ovaj tjedan"
+    },
+    "topCustomers": {
+      "title": "Najvjerniji korisnici",
+      "empty": "Još nema korisnika s karticama.",
+      "visitsSuffix": "posjeta",
+      "pointsSuffix": "b."
+    },
+    "activity": {
+      "title": "Posljednje aktivnosti",
+      "empty": "Još nema aktivnosti za prikaz."
+    },
+    "scan": {
+      "title": "Skeniraj QR",
+      "instructions": "Usmjeri kameru na QR kod klijenta.",
+      "startButton": "Pokreni kameru",
+      "amountLabel": "Iznos računa (neobavezno)",
+      "recordVisit": "Zabilježi posjet",
+      "visitRecorded": "Posjet zabilježen! +{n} bodova",
+      "pendingRedemptions": "Zahtjevi za otkup",
+      "confirmRedemption": "Potvrdi otkup",
+      "scanAnother": "Skeniraj sljedećeg"
+    },
+    "customers": {
+      "title": "Korisnici",
+      "empty": "Još nemaš klijenata.",
+      "nameColumn": "Ime",
+      "pointsColumn": "Bodovi",
+      "joinedColumn": "Datum pridruživanja"
+    },
+    "programs": {
+      "title": "Programi vjernosti",
+      "newButton": "Novi program",
+      "empty": "Još nemaš nijedan program vjernosti.",
+      "editButton": "Uredi",
+      "activate": "Aktiviraj",
+      "deactivate": "Deaktiviraj",
+      "inactiveLabel": "Neaktivan",
+      "form": {
+        "name": "Naziv",
+        "description": "Opis",
+        "pointsPerVisit": "Bodova po posjeti",
+        "save": "Spremi",
+        "cancel": "Odustani",
+        "previewTitle": "Pregled kartice",
+        "previewGoalLabel": "do nagrade"
+      }
+    },
+    "rewards": {
+      "title": "Nagrade",
+      "newButton": "Nova nagrada",
+      "empty": "Još nemaš nijednu nagradu.",
+      "editButton": "Uredi",
+      "activate": "Aktiviraj",
+      "deactivate": "Deaktiviraj",
+      "inactiveLabel": "Neaktivan",
+      "pendingTitle": "Zahtjevi za otkup",
+      "pendingEmpty": "Trenutno nema zahtjeva za otkup.",
+      "confirmButton": "Potvrdi",
+      "form": {
+        "name": "Naziv",
+        "description": "Opis",
+        "pointsCost": "Cijena u bodovima",
+        "save": "Spremi",
+        "cancel": "Odustani",
+        "previewTitle": "Pregled kartice",
+        "previewGoalLabel": "do nagrade"
+      }
+    },
+    "settings": {
+      "saveButton": "Spremi promjene",
+      "saved": "Promjene su spremljene.",
+      "business": {
+        "title": "Podaci o tvrtki",
+        "address": "Adresa",
+        "email": "Email tvrtke",
+        "phone": "Telefon",
+        "description": "Kratak opis"
+      },
+      "profile": {
+        "title": "Moj profil",
+        "phone": "Broj telefona",
+        "dateOfBirth": "Datum rođenja"
+      },
+      "password": {
+        "title": "Promjena lozinke",
+        "newPassword": "Nova lozinka",
+        "confirmPassword": "Potvrdi lozinku",
+        "submit": "Promijeni lozinku",
+        "tooShort": "Lozinka mora imati najmanje 8 znakova.",
+        "mismatch": "Lozinke se ne podudaraju.",
+        "success": "Lozinka je uspješno promijenjena."
+      }
+    },
+    "analytics": {
+      "pointsEarned": "Dodijeljeni bodovi",
+      "pointsRedeemed": "Iskorišteni bodovi",
+      "newCustomers": "Novi korisnici (30 dana)",
+      "chartTitle": "Posjete zadnjih 30 dana",
+      "programs": {
+        "title": "Uspješnost programa",
+        "empty": "Još nema programa vjernosti za prikaz.",
+        "nameColumn": "Program",
+        "cardsColumn": "Aktivne kartice",
+        "pointsColumn": "Bodovi na karticama"
+      }
+    },
+    "marketing": {
+      "managerOnly": "Marketing postavke mogu uređivati samo vlasnik ili administrator tvrtke.",
+      "birthday": {
+        "title": "Rođendanska nagrada",
+        "enabled": "Uključeno",
+        "description": "Automatski ponudi nagradu korisnicima za rođendan.",
+        "rewardType": "Vrsta nagrade",
+        "rewardTypes": {
+          "discount": "Popust",
+          "points_bonus": "Bonus bodovi",
+          "free_item": "Besplatan artikl",
+          "free_service": "Besplatna usluga",
+          "gift": "Poklon",
+          "none": "Bez nagrade"
+        },
+        "discountPercent": "Postotak popusta (%)",
+        "pointsAmount": "Broj bodova",
+        "daysBefore": "Dana prije rođendana",
+        "validDays": "Vrijedi dana"
+      },
+      "referral": {
+        "title": "Program preporuka",
+        "description": "Dopusti korisnicima da pozovu prijatelje i osvoje nagradu.",
+        "enabled": "Uključen",
+        "disabled": "Isključen"
+      },
+      "promoCodes": {
+        "title": "Promo kodovi",
+        "newButton": "Novi kod",
+        "empty": "Još nemaš nijedan promo kod.",
+        "redeemedCount": "Iskorišteno {n}×",
+        "form": {
+          "code": "Kod",
+          "description": "Opis",
+          "discountPercent": "Popust (%)",
+          "discountAmount": "Popust (iznos)",
+          "maxRedemptions": "Maks. broj korištenja",
+          "expiresAt": "Vrijedi do",
+          "save": "Spremi",
+          "cancel": "Odustani"
+        }
+      }
+    }
+  },
+  "portal": {
+    "nav": {
+      "businesses": "Tvrtke",
+      "myCards": "Moje kartice"
+    },
+    "directory": {
+      "title": "Pregledaj tvrtke",
+      "subtitle": "Odaberi tvrtku i uzmi digitalnu karticu vjernosti.",
+      "empty": "Trenutno nema dostupnih tvrtki.",
+      "noMatches": "Nijedna tvrtka ne odgovara odabranim filterima.",
+      "filters": {
+        "categoryLabel": "Djelatnost",
+        "categoryAll": "Sve djelatnosti",
+        "cityLabel": "Grad",
+        "cityPlaceholder": "Pretraži po gradu..."
+      }
+    },
+    "businessDetail": {
+      "programsTitle": "Programi vjernosti",
+      "joinButton": "Uzmi karticu",
+      "alreadyJoined": "Već imaš ovu karticu",
+      "noPrograms": "Ova tvrtka trenutno nema aktivnih programa."
+    },
+    "myCards": {
+      "title": "Moje kartice",
+      "empty": "Još nemaš nijednu karticu. Pregledaj tvrtke i uzmi svoju prvu!",
+      "browseCta": "Pregledaj tvrtke",
+      "pointsLabel": "bodova"
+    },
+    "cardDetail": {
+      "qrTitle": "Tvoj QR kod",
+      "qrHint": "Pokaži ovaj kod zaposleniku pri posjeti.",
+      "rewardsTitle": "Nagrade",
+      "noRewards": "Ova tvrtka još nema dostupnih nagrada.",
+      "redeemButton": "Zatraži otkup",
+      "notEnoughPoints": "Nedovoljno bodova",
+      "redeemRequested": "Zahtjev poslan! Pokaži ovo osoblju pri sljedećoj posjeti."
+    }
+  }
+}

@@ -1,0 +1,3 @@
+-- Demo/seed data is intentionally deferred to the "Seed data" module (after the
+-- Auth module exists), since realistic seed data requires actual auth.users
+-- accounts to attach profiles/businesses/customers to.

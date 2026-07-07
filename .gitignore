@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+*.local
+
+.env
+.env.local
+.env.*.local
+
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+*.tsbuildinfo
+.DS_Store
+
+supabase/.temp
