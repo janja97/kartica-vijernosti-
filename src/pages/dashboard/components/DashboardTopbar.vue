@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import {
   ArrowRightStartOnRectangleIcon,
+  Bars3Icon,
   BellIcon,
   MoonIcon,
   SunIcon,
@@ -40,8 +41,17 @@ async function handleLogout(): Promise<void> {
 </script>
 
 <template>
-  <header class="flex h-16 flex-none items-center justify-between border-b border-border px-6">
-    <h1 class="text-lg font-semibold text-slate-900 dark:text-white">{{ title }}</h1>
+  <header class="flex h-16 flex-none items-center gap-3 border-b border-border px-6">
+    <button
+      type="button"
+      class="rounded-lg p-2 text-slate-500 transition-colors hover:bg-surface-sunken hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 lg:hidden"
+      aria-label="Menu"
+      @click="ui.toggleMobileSidebar()"
+    >
+      <Bars3Icon class="h-5 w-5" />
+    </button>
+
+    <h1 class="flex-1 text-lg font-semibold text-slate-900 dark:text-white">{{ title }}</h1>
 
     <div class="flex items-center gap-2">
       <button

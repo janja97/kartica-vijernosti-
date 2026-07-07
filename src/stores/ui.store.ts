@@ -1,6 +1,6 @@
 import { useDark, useToggle } from '@vueuse/core'
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 import { DEFAULT_LOCALE, i18n, setLocale, type SupportedLocale } from '@/i18n'
 
@@ -15,6 +15,8 @@ export const useUiStore = defineStore('ui', () => {
 
   const locale = computed<SupportedLocale>(() => i18n.global.locale.value as SupportedLocale)
 
+  const isMobileSidebarOpen = ref(false)
+
   function toggleTheme(): void {
     toggleDark()
   }
@@ -23,11 +25,22 @@ export const useUiStore = defineStore('ui', () => {
     setLocale(next)
   }
 
+  function toggleMobileSidebar(): void {
+    isMobileSidebarOpen.value = !isMobileSidebarOpen.value
+  }
+
+  function closeMobileSidebar(): void {
+    isMobileSidebarOpen.value = false
+  }
+
   return {
     isDark,
     locale,
     defaultLocale: DEFAULT_LOCALE,
+    isMobileSidebarOpen,
     toggleTheme,
     changeLocale,
+    toggleMobileSidebar,
+    closeMobileSidebar,
   }
 })

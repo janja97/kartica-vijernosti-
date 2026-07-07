@@ -8,12 +8,14 @@ import {
   QrCodeIcon,
   SparklesIcon,
   UsersIcon,
+  XMarkIcon,
 } from '@heroicons/vue/24/outline'
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import { useCurrentBusiness } from '@/pages/dashboard/composables/useCurrentBusiness'
+import { useUiStore } from '@/stores/ui.store'
 
 interface NavItem {
   labelKey: string
@@ -23,6 +25,7 @@ interface NavItem {
 
 const { t } = useI18n()
 const route = useRoute()
+const ui = useUiStore()
 const { data: business, isLoading } = useCurrentBusiness()
 
 const navItems: NavItem[] = [
@@ -55,16 +58,44 @@ const roleLabel = computed(() => {
 </script>
 
 <template>
-  <aside
-    class="hidden w-64 flex-none border-r border-border bg-surface-raised/60 lg:flex lg:flex-col"
+  <Transition
+    enter-active-class="transition duration-200 ease-out"
+    enter-from-class="opacity-0"
+    enter-to-class="opacity-100"
+    leave-active-class="transition duration-150 ease-in"
+    leave-from-class="opacity-100"
+    leave-to-class="opacity-0"
   >
-    <div class="flex h-16 items-center gap-2 px-6 font-display font-semibold tracking-tight">
-      <span
-        class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-accent-500 text-sm text-white"
+    <div
+      v-if="ui.isMobileSidebarOpen"
+      class="fixed inset-0 z-40 bg-slate-950/50 lg:hidden"
+      @click="ui.closeMobileSidebar()"
+    />
+  </Transition>
+
+  <aside
+    class="fixed inset-y-0 left-0 z-50 flex w-64 flex-none flex-col border-r border-border bg-surface-raised transition-transform duration-200 lg:static lg:z-auto lg:translate-x-0 lg:bg-surface-raised/60"
+    :class="ui.isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+  >
+    <div
+      class="flex h-16 items-center justify-between gap-2 px-6 font-display font-semibold tracking-tight"
+    >
+      <div class="flex items-center gap-2">
+        <span
+          class="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-brand-600 to-accent-500 text-sm text-white"
+        >
+          L
+        </span>
+        LoyalFlow
+      </div>
+      <button
+        type="button"
+        class="rounded-lg p-1 text-slate-400 hover:text-slate-900 dark:hover:text-white lg:hidden"
+        aria-label="Close menu"
+        @click="ui.closeMobileSidebar()"
       >
-        L
-      </span>
-      LoyalFlow
+        <XMarkIcon class="h-5 w-5" />
+      </button>
     </div>
 
     <nav class="flex-1 space-y-1 px-3 py-4">
@@ -78,6 +109,7 @@ const roleLabel = computed(() => {
               ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/10 dark:text-brand-400'
               : 'text-slate-600 hover:bg-surface-sunken hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
           "
+          @click="ui.closeMobileSidebar()"
         >
           <component :is="item.icon" class="h-5 w-5" />
           {{ t(item.labelKey) }}
