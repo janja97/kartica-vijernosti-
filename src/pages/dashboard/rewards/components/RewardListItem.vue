@@ -32,11 +32,25 @@ const { t } = useI18n()
       <p v-if="reward.description" class="mt-1 text-sm text-slate-500 dark:text-slate-400">
         {{ reward.description }}
       </p>
-      <span
-        class="mt-2 inline-flex rounded-full bg-accent-50 px-2.5 py-1 text-xs font-semibold text-accent-700 dark:bg-accent-500/10 dark:text-accent-400"
-      >
-        {{ reward.pointsCost }} {{ t('dashboard.topCustomers.pointsSuffix') }}
-      </span>
+      <div class="mt-2 flex flex-wrap items-center gap-2">
+        <span
+          class="inline-flex rounded-full bg-accent-50 px-2.5 py-1 text-xs font-semibold text-accent-700 dark:bg-accent-500/10 dark:text-accent-400"
+        >
+          {{ reward.pointsCost }} {{ t('dashboard.topCustomers.pointsSuffix') }}
+        </span>
+        <span
+          v-if="reward.type === 'discount' && reward.discountPercent !== null"
+          class="inline-flex rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-400"
+        >
+          -{{ reward.discountPercent }}%
+        </span>
+        <span
+          v-else-if="reward.type === 'free_item'"
+          class="inline-flex rounded-full bg-brand-50 px-2.5 py-1 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-400"
+        >
+          {{ t('dashboard.rewards.form.types.free_item') }}
+        </span>
+      </div>
     </div>
 
     <div class="flex flex-none items-center gap-2">

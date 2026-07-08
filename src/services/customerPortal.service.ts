@@ -20,6 +20,10 @@ function generateCardNumber(): string {
   return `LF-${Math.random().toString(36).slice(2, 10).toUpperCase()}`
 }
 
+function isDue(expiresAt: string | null, status: string): boolean {
+  return status === 'active' && expiresAt !== null && new Date(expiresAt).getTime() < Date.now()
+}
+
 export const customerPortalService = {
   async listBusinessDirectory(
     filters: BusinessDirectoryFilters = {},
@@ -56,6 +60,7 @@ export const customerPortalService = {
         type: program.type,
         color: program.color,
         pointsPerVisit: program.points_per_visit,
+        imageUrl: program.image_url,
       })),
     }
   },
@@ -76,11 +81,16 @@ export const customerPortalService = {
 
     let card = await LoyaltyRepository.findCardByCustomerAndProgram(customer.id, programId)
     if (!card) {
+      const program = await LoyaltyProgramRepository.findById(programId)
+      const expiresAt = program?.expiry_days
+        ? new Date(Date.now() + program.expiry_days * 24 * 60 * 60 * 1000).toISOString()
+        : null
       card = await LoyaltyRepository.createCard(
         businessId,
         customer.id,
         programId,
         generateCardNumber(),
+        expiresAt,
       )
     }
 
@@ -92,8 +102,14 @@ export const customerPortalService = {
     if (customers.length === 0) return []
 
     const customerIds = customers.map((customer) => customer.id)
-    const cards = await LoyaltyRepository.findCardsForCustomers(customerIds)
+    let cards = await LoyaltyRepository.findCardsForCustomers(customerIds)
     if (cards.length === 0) return []
+
+    const dueForExpiry = cards.filter((card) => isDue(card.expires_at, card.status))
+    if (dueForExpiry.length > 0) {
+      await Promise.all(dueForExpiry.map((card) => LoyaltyRepository.expireCardIfDue(card.id)))
+      cards = await LoyaltyRepository.findCardsForCustomers(customerIds)
+    }
 
     const businessIds = [...new Set(cards.map((card) => card.business_id))]
     const programIds = [...new Set(cards.map((card) => card.loyalty_program_id))]
@@ -122,18 +138,28 @@ export const customerPortalService = {
       id: card.id,
       businessId: card.business_id,
       businessName: businessById.get(card.business_id)?.name ?? 'Nepoznata tvrtka',
+      businessLogoUrl: businessById.get(card.business_id)?.logo_url ?? null,
       programId: card.loyalty_program_id,
       programName: programById.get(card.loyalty_program_id)?.name ?? '',
+      programImageUrl: programById.get(card.loyalty_program_id)?.image_url ?? null,
       currentPoints: card.current_points,
       cardNumber: card.card_number,
       nextRewardThreshold: cheapestRewardByBusiness.get(card.business_id) ?? null,
       qrCode: qrCodeByCustomer.get(card.customer_id) ?? '',
+      isExpired: card.status === 'expired',
+      expiresAt: card.expires_at,
     }))
   },
 
   async getCardDetail(cardId: string): Promise<CardDetail | null> {
-    const card = await LoyaltyRepository.findCardById(cardId)
+    let card = await LoyaltyRepository.findCardById(cardId)
     if (!card) return null
+
+    if (isDue(card.expires_at, card.status)) {
+      await LoyaltyRepository.expireCardIfDue(card.id)
+      card = await LoyaltyRepository.findCardById(cardId)
+      if (!card) return null
+    }
 
     const [business, program, qrCode, rewards] = await Promise.all([
       BusinessRepository.findById(card.business_id),
@@ -146,13 +172,17 @@ export const customerPortalService = {
       id: card.id,
       businessId: card.business_id,
       businessName: business?.name ?? '',
+      businessLogoUrl: business?.logo_url ?? null,
       programId: card.loyalty_program_id,
       programName: program?.name ?? '',
+      programImageUrl: program?.image_url ?? null,
       currentPoints: card.current_points,
       cardNumber: card.card_number,
       nextRewardThreshold:
         rewards.find((reward) => reward.points_cost !== null)?.points_cost ?? null,
       qrCode: qrCode?.code ?? '',
+      isExpired: card.status === 'expired',
+      expiresAt: card.expires_at,
       rewards: rewards.map((reward) => ({
         id: reward.id,
         businessId: reward.business_id,
@@ -161,6 +191,7 @@ export const customerPortalService = {
         description: reward.description,
         type: reward.type,
         pointsCost: reward.points_cost,
+        discountPercent: reward.discount_percent,
         isActive: reward.is_active,
         affordable: reward.points_cost !== null && card.current_points >= reward.points_cost,
       })),
@@ -170,6 +201,9 @@ export const customerPortalService = {
   async requestRedemption(cardId: string, rewardId: string): Promise<void> {
     const card = await LoyaltyRepository.findCardById(cardId)
     if (!card) throw new Error('Kartica nije pronađena.')
+    if (card.status === 'expired' || isDue(card.expires_at, card.status)) {
+      throw new Error('Kartica je istekla i više se ne može koristiti.')
+    }
 
     const [reward] = await RewardRepository.findByIds([rewardId])
     if (!reward) throw new Error('Nagrada nije pronađena.')

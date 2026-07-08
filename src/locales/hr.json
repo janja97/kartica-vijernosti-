@@ -5,6 +5,9 @@
   "common": {
     "loading": "Učitavanje...",
     "comingSoon": "Uskoro dostupno",
+    "uploadImage": "Dodaj sliku",
+    "changeImage": "Promijeni sliku",
+    "removeImage": "Ukloni sliku",
     "time": {
       "now": "upravo sada",
       "minutes": "prije {n} min",
@@ -267,7 +270,8 @@
       "visitRecorded": "Posjet zabilježen! +{n} bodova",
       "pendingRedemptions": "Zahtjevi za otkup",
       "confirmRedemption": "Potvrdi otkup",
-      "scanAnother": "Skeniraj sljedećeg"
+      "scanAnother": "Skeniraj sljedećeg",
+      "expiredNotice": "Ova kartica je istekla i više ne prikuplja bodove."
     },
     "customers": {
       "title": "Korisnici",
@@ -291,7 +295,16 @@
         "save": "Spremi",
         "cancel": "Odustani",
         "previewTitle": "Pregled kartice",
-        "previewGoalLabel": "do nagrade"
+        "previewGoalLabel": "do nagrade",
+        "image": "Slika kartice",
+        "rulesTitle": "Pravila bodovanja",
+        "minimumSpendTitle": "Bonus za veću kupnju",
+        "minimumSpendHint": "Ako klijent potroši barem ovaj iznos u jednoj posjeti, dobiva dodatne bonus bodove uz ostala pravila.",
+        "minimumSpendAmountPlaceholder": "Iznos (npr. 50)",
+        "minimumSpendBonusPlaceholder": "Bonus bodovi (npr. 10)",
+        "expiryDays": "Rok valjanosti kartice (dana)",
+        "expiryDaysHint": "Nakon isteka ovog broja dana od preuzimanja kartice, bodovi se ponište i kartica postaje neaktivna. Ostavi prazno za karticu bez roka trajanja.",
+        "expiryDaysPlaceholder": "Npr. 365"
       }
     },
     "rewards": {
@@ -308,11 +321,18 @@
       "form": {
         "name": "Naziv",
         "description": "Opis",
+        "descriptionPlaceholder": "Npr. Besplatna kava, 20% popusta na sljedeću kupnju...",
         "pointsCost": "Cijena u bodovima",
         "save": "Spremi",
         "cancel": "Odustani",
         "previewTitle": "Pregled kartice",
-        "previewGoalLabel": "do nagrade"
+        "previewGoalLabel": "do nagrade",
+        "type": "Vrsta nagrade",
+        "types": {
+          "discount": "Popust",
+          "free_item": "Besplatno"
+        },
+        "discountPercent": "Postotak popusta (%)"
       }
     },
     "settings": {
@@ -320,6 +340,7 @@
       "saved": "Promjene su spremljene.",
       "business": {
         "title": "Podaci o tvrtki",
+        "logo": "Logo tvrtke",
         "address": "Adresa",
         "email": "Email tvrtke",
         "phone": "Telefon",
@@ -424,7 +445,8 @@
       "title": "Moje kartice",
       "empty": "Još nemaš nijednu karticu. Pregledaj tvrtke i uzmi svoju prvu!",
       "browseCta": "Pregledaj tvrtke",
-      "pointsLabel": "bodova"
+      "pointsLabel": "bodova",
+      "expiredBadge": "Istekla"
     },
     "cardDetail": {
       "qrTitle": "Tvoj QR kod",
@@ -433,7 +455,8 @@
       "noRewards": "Ova tvrtka još nema dostupnih nagrada.",
       "redeemButton": "Zatraži otkup",
       "notEnoughPoints": "Nedovoljno bodova",
-      "redeemRequested": "Zahtjev poslan! Pokaži ovo osoblju pri sljedećoj posjeti."
+      "redeemRequested": "Zahtjev poslan! Pokaži ovo osoblju pri sljedećoj posjeti.",
+      "expiredNotice": "Ova kartica je istekla. Bodovi su poništeni i kartica se više ne može koristiti."
     }
   }
 }

@@ -13,6 +13,7 @@ export interface Business {
   addressLine: string | null
   email: string | null
   phone: string | null
+  logoUrl: string | null
   currentUserRole: BusinessMemberRole
 }
 

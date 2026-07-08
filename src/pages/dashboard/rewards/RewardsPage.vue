@@ -30,6 +30,8 @@ async function handleCreate(input: {
   name: string
   description: string | null
   pointsCost: number
+  type: 'discount' | 'free_item'
+  discountPercent: number | null
 }): Promise<void> {
   const currentBusinessId = businessId()
   if (!currentBusinessId) return
@@ -48,6 +50,8 @@ async function handleUpdate(input: {
   name: string
   description: string | null
   pointsCost: number
+  type: 'discount' | 'free_item'
+  discountPercent: number | null
 }): Promise<void> {
   if (!editingReward.value) return
 

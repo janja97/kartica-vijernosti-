@@ -26,6 +26,10 @@ async function handleCreate(input: {
   name: string
   description: string | null
   pointsPerVisit: number
+  minimumSpendAmount: number | null
+  minimumSpendBonus: number | null
+  expiryDays: number | null
+  imageUrl: string | null
 }): Promise<void> {
   const currentBusinessId = businessId()
   if (!currentBusinessId) return
@@ -44,6 +48,10 @@ async function handleUpdate(input: {
   name: string
   description: string | null
   pointsPerVisit: number
+  minimumSpendAmount: number | null
+  minimumSpendBonus: number | null
+  expiryDays: number | null
+  imageUrl: string | null
 }): Promise<void> {
   if (!editingProgram.value) return
 
@@ -84,10 +92,16 @@ async function handleToggleActive(program: LoyaltyProgram): Promise<void> {
       </button>
     </div>
 
-    <ProgramFormPanel v-if="isCreating" @save="handleCreate" @cancel="isCreating = false" />
+    <ProgramFormPanel
+      v-if="isCreating"
+      :business-id="businessId() ?? ''"
+      @save="handleCreate"
+      @cancel="isCreating = false"
+    />
     <ProgramFormPanel
       v-if="editingProgram"
       :program="editingProgram"
+      :business-id="businessId() ?? ''"
       @save="handleUpdate"
       @cancel="editingProgram = null"
     />

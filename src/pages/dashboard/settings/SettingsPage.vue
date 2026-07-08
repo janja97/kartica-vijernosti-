@@ -51,6 +51,18 @@ async function handleSaveBusiness(input: BusinessUpdateInput): Promise<void> {
   }
 }
 
+async function handleUpdateLogo(logoUrl: string | null): Promise<void> {
+  if (!business.value) return
+
+  errorMessage.value = ''
+  try {
+    await businessService.updateLogo(business.value.id, logoUrl)
+    await invalidateBusiness()
+  } catch (error) {
+    errorMessage.value = getErrorMessage(error)
+  }
+}
+
 async function handleSaveProfile(input: ProfileUpdateInput): Promise<void> {
   if (!profile.value) return
 
@@ -85,7 +97,7 @@ async function handleSavePassword(newPassword: string): Promise<void> {
 
   <main class="flex-1 space-y-6 p-6">
     <p v-if="errorMessage" class="text-sm text-rose-600 dark:text-rose-400">{{ errorMessage }}</p>
-    <p v-if="successMessage" class="text-sm text-emerald-600 dark:text-emerald-400">
+    <p v-if="successMessage" class="text-sm text-success-600 dark:text-success-500">
       {{ successMessage }}
     </p>
 
@@ -99,6 +111,7 @@ async function handleSavePassword(newPassword: string): Promise<void> {
         :business="business"
         :is-saving="isSavingBusiness"
         @save="handleSaveBusiness"
+        @update-logo="handleUpdateLogo"
       />
 
       <ProfileInfoForm

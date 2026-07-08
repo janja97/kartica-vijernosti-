@@ -55,7 +55,14 @@ function handleRecordVisit(): void {
       />
     </div>
 
-    <div class="mt-5">
+    <p
+      v-if="result.isExpired"
+      class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/20 dark:bg-rose-500/10 dark:text-rose-400"
+    >
+      {{ t('dashboard.scan.expiredNotice') }}
+    </p>
+
+    <div v-else class="mt-5">
       <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
         {{ t('dashboard.scan.amountLabel') }}
       </label>

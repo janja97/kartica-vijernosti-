@@ -13,6 +13,10 @@ function toDomain(row: LoyaltyProgramRow): LoyaltyProgram {
     type: row.type,
     color: row.color,
     pointsPerVisit: row.points_per_visit,
+    minimumSpendAmount: row.minimum_spend_amount,
+    minimumSpendBonus: row.minimum_spend_bonus,
+    expiryDays: row.expiry_days,
+    imageUrl: row.image_url,
     isActive: row.is_active,
   }
 }
@@ -21,6 +25,10 @@ export interface LoyaltyProgramInput {
   name: string
   description: string | null
   pointsPerVisit: number
+  minimumSpendAmount: number | null
+  minimumSpendBonus: number | null
+  expiryDays: number | null
+  imageUrl?: string | null
   isActive?: boolean
 }
 
@@ -37,6 +45,9 @@ export const loyaltyProgramService = {
       description: input.description,
       type: 'points',
       points_per_visit: input.pointsPerVisit,
+      minimum_spend_amount: input.minimumSpendAmount,
+      minimum_spend_bonus: input.minimumSpendBonus,
+      expiry_days: input.expiryDays,
     })
     return toDomain(row)
   },
@@ -46,8 +57,17 @@ export const loyaltyProgramService = {
       name: input.name,
       description: input.description,
       points_per_visit: input.pointsPerVisit,
+      minimum_spend_amount: input.minimumSpendAmount,
+      minimum_spend_bonus: input.minimumSpendBonus,
+      expiry_days: input.expiryDays,
+      image_url: input.imageUrl,
       is_active: input.isActive,
     })
+    return toDomain(row)
+  },
+
+  async updateImage(id: string, imageUrl: string | null): Promise<LoyaltyProgram> {
+    const row = await LoyaltyProgramRepository.update(id, { image_url: imageUrl })
     return toDomain(row)
   },
 }

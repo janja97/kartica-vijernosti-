@@ -5,6 +5,9 @@
   "common": {
     "loading": "Loading...",
     "comingSoon": "Coming soon",
+    "uploadImage": "Upload image",
+    "changeImage": "Change image",
+    "removeImage": "Remove image",
     "time": {
       "now": "just now",
       "minutes": "{n} min ago",
@@ -267,7 +270,8 @@
       "visitRecorded": "Visit recorded! +{n} points",
       "pendingRedemptions": "Pending redemptions",
       "confirmRedemption": "Confirm redemption",
-      "scanAnother": "Scan next"
+      "scanAnother": "Scan next",
+      "expiredNotice": "This card has expired and no longer collects points."
     },
     "customers": {
       "title": "Customers",
@@ -291,7 +295,16 @@
         "save": "Save",
         "cancel": "Cancel",
         "previewTitle": "Card preview",
-        "previewGoalLabel": "to reward"
+        "previewGoalLabel": "to reward",
+        "image": "Card image",
+        "rulesTitle": "Earning rules",
+        "minimumSpendTitle": "Big-spend bonus",
+        "minimumSpendHint": "If a customer spends at least this amount in one visit, they earn extra bonus points on top of the other rules.",
+        "minimumSpendAmountPlaceholder": "Amount (e.g. 50)",
+        "minimumSpendBonusPlaceholder": "Bonus points (e.g. 10)",
+        "expiryDays": "Card validity (days)",
+        "expiryDaysHint": "This many days after the card is issued, its points are voided and the card becomes inactive. Leave blank for a card that never expires.",
+        "expiryDaysPlaceholder": "E.g. 365"
       }
     },
     "rewards": {
@@ -308,11 +321,18 @@
       "form": {
         "name": "Name",
         "description": "Description",
+        "descriptionPlaceholder": "E.g. Free coffee, 20% off your next purchase...",
         "pointsCost": "Points cost",
         "save": "Save",
         "cancel": "Cancel",
         "previewTitle": "Card preview",
-        "previewGoalLabel": "to reward"
+        "previewGoalLabel": "to reward",
+        "type": "Reward type",
+        "types": {
+          "discount": "Discount",
+          "free_item": "Free"
+        },
+        "discountPercent": "Discount percent (%)"
       }
     },
     "settings": {
@@ -320,6 +340,7 @@
       "saved": "Changes saved.",
       "business": {
         "title": "Business info",
+        "logo": "Business logo",
         "address": "Address",
         "email": "Business email",
         "phone": "Phone",
@@ -424,7 +445,8 @@
       "title": "My cards",
       "empty": "You don't have any cards yet. Browse businesses and get your first one!",
       "browseCta": "Browse businesses",
-      "pointsLabel": "points"
+      "pointsLabel": "points",
+      "expiredBadge": "Expired"
     },
     "cardDetail": {
       "qrTitle": "Your QR code",
@@ -433,7 +455,8 @@
       "noRewards": "This business doesn't have any rewards yet.",
       "redeemButton": "Request redemption",
       "notEnoughPoints": "Not enough points",
-      "redeemRequested": "Request sent! Show this to staff on your next visit."
+      "redeemRequested": "Request sent! Show this to staff on your next visit.",
+      "expiredNotice": "This card has expired. Its points were voided and it can no longer be used."
     }
   }
 }

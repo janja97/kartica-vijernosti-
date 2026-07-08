@@ -16,6 +16,7 @@ function toDomain(row: RewardCatalogRow): RewardCatalogItem {
     description: row.description,
     type: row.type,
     pointsCost: row.points_cost,
+    discountPercent: row.discount_percent,
     isActive: row.is_active,
   }
 }
@@ -24,6 +25,8 @@ export interface RewardInput {
   name: string
   description: string | null
   pointsCost: number
+  type: 'discount' | 'free_item'
+  discountPercent: number | null
   isActive?: boolean
 }
 
@@ -38,8 +41,9 @@ export const rewardService = {
       business_id: businessId,
       name: input.name,
       description: input.description,
-      type: 'discount',
+      type: input.type,
       points_cost: input.pointsCost,
+      discount_percent: input.discountPercent,
     })
     return toDomain(row)
   },
@@ -49,6 +53,8 @@ export const rewardService = {
       name: input.name,
       description: input.description,
       points_cost: input.pointsCost,
+      type: input.type,
+      discount_percent: input.discountPercent,
       is_active: input.isActive,
     })
     return toDomain(row)

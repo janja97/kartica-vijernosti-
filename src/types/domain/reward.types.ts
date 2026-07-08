@@ -8,6 +8,7 @@ export interface RewardCatalogItem {
   description: string | null
   type: RewardType
   pointsCost: number | null
+  discountPercent: number | null
   isActive: boolean
 }
 
