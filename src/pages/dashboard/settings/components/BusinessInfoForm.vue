@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+import ImageUploadField from '@/components/ui/ImageUploadField.vue'
 import { BUSINESS_CATEGORIES } from '@/constants/businessCategories'
 import type { Business, BusinessUpdateInput } from '@/types/domain/business.types'
 import type { BusinessCategory } from '@/types/database.types'
@@ -13,6 +14,7 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   save: [BusinessUpdateInput]
+  updateLogo: [string | null]
 }>()
 
 const { t } = useI18n()
@@ -24,6 +26,7 @@ const addressLine = ref(props.business.addressLine ?? '')
 const email = ref(props.business.email ?? '')
 const phone = ref(props.business.phone ?? '')
 const description = ref(props.business.description ?? '')
+const logoUrl = ref(props.business.logoUrl)
 
 function handleSubmit(): void {
   emit('save', {
@@ -36,6 +39,11 @@ function handleSubmit(): void {
     description: description.value || null,
   })
 }
+
+function handleLogoChange(url: string | null): void {
+  logoUrl.value = url
+  emit('updateLogo', url)
+}
 </script>
 
 <template>
@@ -46,6 +54,15 @@ function handleSubmit(): void {
     <h2 class="font-display text-sm font-semibold text-slate-900 dark:text-white">
       {{ t('dashboard.settings.business.title') }}
     </h2>
+
+    <ImageUploadField
+      :model-value="logoUrl"
+      bucket="business-logos"
+      :business-id="business.id"
+      file-name="logo"
+      :label="t('dashboard.settings.business.logo')"
+      @update:model-value="handleLogoChange"
+    />
 
     <div class="grid gap-4 sm:grid-cols-2">
       <div>

@@ -18,7 +18,12 @@ export interface ScanResult {
   programName: string
   currentPoints: number
   nextRewardThreshold: number | null
+  isExpired: boolean
   pendingRedemptions: PendingRedemptionSummary[]
+}
+
+function isDue(expiresAt: string | null, status: string): boolean {
+  return status === 'active' && expiresAt !== null && new Date(expiresAt).getTime() < Date.now()
 }
 
 export const scanService = {
@@ -30,8 +35,14 @@ export const scanService = {
     if (!customer) throw new Error('Korisnik nije pronađen.')
 
     const cards = await LoyaltyRepository.findCardsForCustomers([customer.id])
-    const card = cards.find((c) => c.business_id === businessId)
+    let card = cards.find((c) => c.business_id === businessId)
     if (!card) throw new Error('Ovaj korisnik nema karticu kod ove tvrtke.')
+
+    if (isDue(card.expires_at, card.status)) {
+      await LoyaltyRepository.expireCardIfDue(card.id)
+      const refreshed = await LoyaltyRepository.findCardById(card.id)
+      if (refreshed) card = refreshed
+    }
 
     const [pending, program, activeRewards] = await Promise.all([
       RewardRedemptionRepository.listPendingForCard(card.id),
@@ -52,6 +63,7 @@ export const scanService = {
       programName: program?.name ?? '',
       currentPoints: card.current_points,
       nextRewardThreshold,
+      isExpired: card.status === 'expired',
       pendingRedemptions: pending.map((redemption) => ({
         id: redemption.id,
         rewardName: rewardById.get(redemption.reward_id)?.name ?? 'Nagrada',
@@ -69,12 +81,19 @@ export const scanService = {
   ): Promise<number> {
     const card = await LoyaltyRepository.findCardById(cardId)
     if (!card) throw new Error('Kartica nije pronađena.')
+    if (card.status === 'expired' || isDue(card.expires_at, card.status)) {
+      throw new Error('Kartica je istekla i više ne prikuplja bodove.')
+    }
 
     const program = await LoyaltyProgramRepository.findById(card.loyalty_program_id)
     const flatPoints = program?.points_per_visit ?? 0
     const amountPoints =
       amountSpent && program?.points_per_currency ? amountSpent * program.points_per_currency : 0
-    const pointsEarned = flatPoints + amountPoints
+    const minimumSpendBonus =
+      amountSpent && program?.minimum_spend_amount && amountSpent >= program.minimum_spend_amount
+        ? (program.minimum_spend_bonus ?? 0)
+        : 0
+    const pointsEarned = flatPoints + amountPoints + minimumSpendBonus
     const balanceAfter = card.current_points + pointsEarned
 
     await LoyaltyRepository.insertPointTransaction({

@@ -50,6 +50,7 @@ export const LoyaltyRepository = {
     customerId: string,
     programId: string,
     cardNumber: string,
+    expiresAt: string | null = null,
   ): Promise<LoyaltyCardRow> {
     const { data, error } = await supabase
       .from('loyalty_cards')
@@ -58,12 +59,18 @@ export const LoyaltyRepository = {
         customer_id: customerId,
         loyalty_program_id: programId,
         card_number: cardNumber,
+        expires_at: expiresAt,
       })
       .select()
       .single()
 
     if (error) throw error
     return data
+  },
+
+  async expireCardIfDue(cardId: string): Promise<void> {
+    const { error } = await supabase.rpc('expire_loyalty_card_if_due', { target_card_id: cardId })
+    if (error) throw error
   },
 
   async insertPointTransaction(input: PointTransactionInsert): Promise<void> {

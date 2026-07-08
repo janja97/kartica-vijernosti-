@@ -191,6 +191,9 @@ export interface Database {
           points_per_currency: number | null
           stamps_required: number | null
           expiry_days: number | null
+          image_url: string | null
+          minimum_spend_amount: number | null
+          minimum_spend_bonus: number | null
           is_active: boolean
           starts_at: string | null
           ends_at: string | null
@@ -210,6 +213,9 @@ export interface Database {
           points_per_currency?: number | null
           stamps_required?: number | null
           expiry_days?: number | null
+          image_url?: string | null
+          minimum_spend_amount?: number | null
+          minimum_spend_bonus?: number | null
           is_active?: boolean
           starts_at?: string | null
           ends_at?: string | null
@@ -564,7 +570,12 @@ export interface Database {
       }
     }
     Views: Record<string, never>
-    Functions: Record<string, never>
+    Functions: {
+      expire_loyalty_card_if_due: {
+        Args: { target_card_id: string }
+        Returns: undefined
+      }
+    }
     Enums: {
       user_role: UserRole
       business_member_role: BusinessMemberRole

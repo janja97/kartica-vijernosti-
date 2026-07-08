@@ -11,16 +11,32 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  save: [{ name: string; description: string | null; pointsCost: number }]
+  save: [
+    {
+      name: string
+      description: string | null
+      pointsCost: number
+      type: 'discount' | 'free_item'
+      discountPercent: number | null
+    },
+  ]
   cancel: []
 }>()
 
 const { t } = useI18n()
 const { data: business } = useCurrentBusiness()
 
+const REWARD_TYPES = ['discount', 'free_item'] as const
+
 const name = ref(props.reward?.name ?? '')
 const description = ref(props.reward?.description ?? '')
 const pointsCost = ref(String(props.reward?.pointsCost ?? 50))
+const type = ref<'discount' | 'free_item'>(
+  props.reward?.type === 'free_item' ? 'free_item' : 'discount',
+)
+const discountPercent = ref(
+  props.reward?.discountPercent ? String(props.reward.discountPercent) : '',
+)
 
 const previewGoal = computed(() => Math.max(Number.parseFloat(pointsCost.value) || 0, 1))
 const previewValue = computed(() => Math.round(previewGoal.value * 0.4))
@@ -30,6 +46,11 @@ function handleSubmit(): void {
     name: name.value,
     description: description.value || null,
     pointsCost: Number.parseFloat(pointsCost.value) || 0,
+    type: type.value,
+    discountPercent:
+      type.value === 'discount' && discountPercent.value
+        ? Number.parseFloat(discountPercent.value)
+        : null,
   })
 }
 </script>
@@ -59,6 +80,42 @@ function handleSubmit(): void {
         <textarea
           v-model="description"
           rows="2"
+          :placeholder="t('dashboard.rewards.form.descriptionPlaceholder')"
+          class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:text-white"
+        />
+      </div>
+
+      <div>
+        <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+          {{ t('dashboard.rewards.form.type') }}
+        </label>
+        <div class="grid grid-cols-2 gap-1 rounded-lg bg-surface-sunken p-1">
+          <button
+            v-for="option in REWARD_TYPES"
+            :key="option"
+            type="button"
+            class="rounded-md px-3 py-1.5 text-xs font-semibold transition-colors"
+            :class="
+              type === option
+                ? 'bg-surface-raised text-brand-600 shadow-sm dark:text-brand-400'
+                : 'text-slate-500 dark:text-slate-400'
+            "
+            @click="type = option"
+          >
+            {{ t(`dashboard.rewards.form.types.${option}`) }}
+          </button>
+        </div>
+      </div>
+
+      <div v-if="type === 'discount'">
+        <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+          {{ t('dashboard.rewards.form.discountPercent') }}
+        </label>
+        <input
+          v-model="discountPercent"
+          type="number"
+          min="0"
+          max="100"
           class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:text-white"
         />
       </div>

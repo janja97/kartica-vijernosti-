@@ -20,6 +20,7 @@ export const businessService = {
       addressLine: business.address_line,
       email: business.email,
       phone: business.phone,
+      logoUrl: business.logo_url,
       currentUserRole: membership.role,
     }
   },
@@ -34,5 +35,9 @@ export const businessService = {
       email: input.email,
       phone: input.phone,
     })
+  },
+
+  async updateLogo(businessId: string, logoUrl: string | null): Promise<void> {
+    await BusinessRepository.update(businessId, { logo_url: logoUrl })
   },
 }

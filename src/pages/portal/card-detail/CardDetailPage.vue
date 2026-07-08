@@ -52,7 +52,17 @@ async function handleRedeem(rewardId: string): Promise<void> {
         :program-name="card.programName"
         :value="card.currentPoints"
         :goal="card.nextRewardThreshold"
+        :background-image-url="card.programImageUrl ?? card.businessLogoUrl"
+        :seed="card.programId"
+        :badge-label="card.isExpired ? t('portal.myCards.expiredBadge') : null"
       />
+
+      <p
+        v-if="card.isExpired"
+        class="mt-4 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-700 dark:border-rose-500/20 dark:bg-rose-500/10 dark:text-rose-400"
+      >
+        {{ t('portal.cardDetail.expiredNotice') }}
+      </p>
 
       <div class="mt-6">
         <h2 class="font-display text-sm font-semibold text-slate-900 dark:text-white">
@@ -88,11 +98,19 @@ async function handleRedeem(rewardId: string): Promise<void> {
         >
           <div class="min-w-0">
             <p class="text-sm font-medium text-slate-900 dark:text-white">{{ reward.name }}</p>
-            <span
-              class="mt-1 inline-flex rounded-full bg-accent-50 px-2 py-0.5 text-xs font-semibold text-accent-700 dark:bg-accent-500/10 dark:text-accent-400"
-            >
-              {{ reward.pointsCost }} {{ t('dashboard.topCustomers.pointsSuffix') }}
-            </span>
+            <div class="mt-1 flex flex-wrap items-center gap-1.5">
+              <span
+                class="inline-flex rounded-full bg-accent-50 px-2 py-0.5 text-xs font-semibold text-accent-700 dark:bg-accent-500/10 dark:text-accent-400"
+              >
+                {{ reward.pointsCost }} {{ t('dashboard.topCustomers.pointsSuffix') }}
+              </span>
+              <span
+                v-if="reward.type === 'discount' && reward.discountPercent !== null"
+                class="inline-flex rounded-full bg-brand-50 px-2 py-0.5 text-xs font-semibold text-brand-700 dark:bg-brand-500/10 dark:text-brand-400"
+              >
+                -{{ reward.discountPercent }}%
+              </span>
+            </div>
           </div>
 
           <span
@@ -102,7 +120,7 @@ async function handleRedeem(rewardId: string): Promise<void> {
             {{ t('portal.cardDetail.redeemRequested') }}
           </span>
           <button
-            v-else-if="reward.affordable"
+            v-else-if="reward.affordable && !card.isExpired"
             type="button"
             :disabled="requestingRewardId === reward.id"
             class="flex-none rounded-lg bg-brand-600 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
