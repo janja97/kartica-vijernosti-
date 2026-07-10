@@ -114,7 +114,7 @@ async function handleJoin(programId: string): Promise<void> {
           v-else
           type="button"
           :disabled="joiningProgramId === program.id"
-          class="mt-4 rounded-lg bg-accent-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-60"
+          class="btn-ripple mt-4 rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-60"
           @click="handleJoin(program.id)"
         >
           {{

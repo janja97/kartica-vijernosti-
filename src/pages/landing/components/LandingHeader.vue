@@ -37,8 +37,8 @@ function closeMobileMenu(): void {
       <nav
         class="hidden items-center gap-10 text-xs font-medium uppercase tracking-widest text-slate-500 dark:text-slate-400 md:flex"
       >
-        <a href="#benefits" class="transition-colors hover:text-slate-900 dark:hover:text-white">
-          {{ t('landing.nav.benefits') }}
+        <a href="#why" class="transition-colors hover:text-slate-900 dark:hover:text-white">
+          {{ t('landing.nav.why') }}
         </a>
         <a
           href="#how-it-works"
@@ -46,8 +46,11 @@ function closeMobileMenu(): void {
         >
           {{ t('landing.nav.howItWorks') }}
         </a>
-        <a href="#audience" class="transition-colors hover:text-slate-900 dark:hover:text-white">
-          {{ t('landing.nav.audience') }}
+        <a href="#features" class="transition-colors hover:text-slate-900 dark:hover:text-white">
+          {{ t('landing.nav.features') }}
+        </a>
+        <a href="#faq" class="transition-colors hover:text-slate-900 dark:hover:text-white">
+          {{ t('landing.nav.faq') }}
         </a>
       </nav>
 
@@ -79,7 +82,7 @@ function closeMobileMenu(): void {
 
         <RouterLink
           to="/auth/register"
-          class="hidden items-center gap-2 rounded-full bg-accent-600 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-700 sm:inline-flex"
+          class="btn-ripple hidden items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-xs font-semibold uppercase tracking-widest text-white shadow-soft transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700 sm:inline-flex"
         >
           {{ t('landing.nav.cta') }}
         </RouterLink>
@@ -107,11 +110,11 @@ function closeMobileMenu(): void {
       <div v-if="isMobileMenuOpen" class="border-t border-border bg-surface px-6 py-4 md:hidden">
         <nav class="flex flex-col gap-1 text-sm font-medium text-slate-500 dark:text-slate-400">
           <a
-            href="#benefits"
+            href="#why"
             class="rounded-md px-2 py-2 hover:bg-surface-sunken"
             @click="closeMobileMenu"
           >
-            {{ t('landing.nav.benefits') }}
+            {{ t('landing.nav.why') }}
           </a>
           <a
             href="#how-it-works"
@@ -121,11 +124,18 @@ function closeMobileMenu(): void {
             {{ t('landing.nav.howItWorks') }}
           </a>
           <a
-            href="#audience"
+            href="#features"
             class="rounded-md px-2 py-2 hover:bg-surface-sunken"
             @click="closeMobileMenu"
           >
-            {{ t('landing.nav.audience') }}
+            {{ t('landing.nav.features') }}
+          </a>
+          <a
+            href="#faq"
+            class="rounded-md px-2 py-2 hover:bg-surface-sunken"
+            @click="closeMobileMenu"
+          >
+            {{ t('landing.nav.faq') }}
           </a>
           <button
             type="button"
@@ -143,7 +153,7 @@ function closeMobileMenu(): void {
           </RouterLink>
           <RouterLink
             to="/auth/register"
-            class="mt-2 rounded-full bg-accent-600 px-3 py-2 text-center font-semibold text-white"
+            class="btn-ripple mt-2 rounded-full bg-brand-600 px-3 py-2 text-center font-semibold text-white"
             @click="closeMobileMenu"
           >
             {{ t('landing.nav.cta') }}

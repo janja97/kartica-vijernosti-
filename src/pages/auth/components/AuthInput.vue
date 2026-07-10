@@ -34,7 +34,7 @@ const inputId = useId()
       :type="type"
       :placeholder="placeholder"
       :autocomplete="autocomplete"
-      class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition-colors placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:text-white"
+      class="focus-glow w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none transition-all placeholder:text-slate-400 dark:text-white"
     />
   </div>
 </template>

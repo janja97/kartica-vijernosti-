@@ -33,7 +33,7 @@ const { target, isVisible } = useReveal()
 
       <RouterLink
         to="/auth/register"
-        class="mt-10 inline-block rounded-full bg-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-brand-700 shadow-soft transition-transform duration-200 hover:-translate-y-0.5"
+        class="btn-ripple mt-10 inline-block rounded-full bg-white px-8 py-3.5 text-xs font-semibold uppercase tracking-widest text-brand-700 shadow-soft transition-transform duration-200 hover:-translate-y-0.5"
       >
         {{ t('landing.cta.button') }}
       </RouterLink>

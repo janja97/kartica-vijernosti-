@@ -45,7 +45,7 @@ async function handleSubmit(): Promise<void> {
       <button
         type="submit"
         :disabled="isSubmitting"
-        class="w-full rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-700 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+        class="btn-ripple w-full rounded-lg bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-transform duration-200 hover:-translate-y-0.5 hover:bg-brand-700 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {{ isSubmitting ? t('common.loading') : t('auth.forgotPassword.submit') }}
       </button>
