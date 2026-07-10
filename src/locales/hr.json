@@ -22,9 +22,10 @@
   },
   "landing": {
     "nav": {
-      "benefits": "Prednosti",
+      "why": "Zašto",
       "howItWorks": "Kako radi",
-      "audience": "Za koga je",
+      "features": "Značajke",
+      "faq": "Pitanja",
       "login": "Prijava",
       "cta": "Isprobaj besplatno"
     },
@@ -57,58 +58,130 @@
         { "value": "24", "suffix": "/7", "label": "automatski marketing i podsjetnici" }
       ]
     },
-    "audience": {
-      "title": "Za koga je LoyalFlow",
-      "subtitle": "Ako imaš kupce koji se vraćaju, LoyalFlow ti pomaže da ih zadržiš — bez obzira na djelatnost.",
-      "items": [
-        { "label": "Kafići" },
-        { "label": "Restorani" },
-        { "label": "Frizerski saloni" },
-        { "label": "Kozmetički saloni" },
-        { "label": "Teretane i fitness" },
-        { "label": "Autoperionice" },
-        { "label": "Autoservisi" },
-        { "label": "Pekarnice i slastičarnice" },
-        { "label": "Hoteli i apartmani" },
-        { "label": "Stomatološke ordinacije" }
-      ],
-      "more": "...i svaka druga uslužna djelatnost s kupcima koji se vraćaju."
+    "logoCloud": {
+      "title": "Prilagođeno svakoj uslužnoj djelatnosti",
+      "industries": {
+        "cafes": "Kafići",
+        "restaurants": "Restorani",
+        "salons": "Frizerski saloni",
+        "beauty": "Kozmetički saloni",
+        "gyms": "Teretane",
+        "carwash": "Autoperionice",
+        "hotels": "Hoteli",
+        "wellness": "Wellness i spa"
+      }
     },
-    "benefits": {
-      "title": "Zašto obrtnici prelaze na LoyalFlow",
-      "subtitle": "Sve što ti treba da pretvoriš povremene kupce u stalne goste, bez dodatnog osoblja ili tehničkog znanja.",
+    "why": {
+      "eyebrow": "Zašto digitalna kartica",
+      "title": "Sve prednosti papirnate kartice, bez ijedne njezine mane",
+      "subtitle": "Kupci danas očekuju digitalno iskustvo. LoyalFlow im to daje, a tebi oduzima sav administrativni posao oko toga.",
+      "items": [
+        "Nema papirnatih kartica koje se gube, cijepaju ili zaborave kod kuće",
+        "Kartica je uvijek u mobitelu kupca, spremna za skeniranje u sekundi",
+        "Ekološki prihvatljivo — bez tiskanja, bez papirnatog otpada",
+        "Kupac uživo prati bodove, pečate i napredak do sljedeće nagrade",
+        "Podsjetnici i rođendanske pogodnosti šalju se posve automatski",
+        "Jedna aplikacija za sve tvoje programe vjernosti, na svim uređajima"
+      ]
+    },
+    "forBusiness": {
+      "eyebrow": "Za poslovne korisnike",
+      "title": "Sve što ti treba da vodiš loyalty program bez glavobolje",
+      "subtitle": "Nadzorna ploča, automatski marketing i uvid u poslovanje — bez dodatnog osoblja ili tehničkog znanja.",
       "items": [
         {
-          "title": "Veća lojalnost kupaca",
-          "description": "Bodovi, pečati i nagrade potiču kupce da se vraćaju umjesto da odu konkurenciji. Svaka posjeta postaje korak bliže sljedećoj nagradi."
+          "title": "Analitika u stvarnom vremenu",
+          "description": "Prati posjete, bodove i najvjernije kupce iz jedne pregledne nadzorne ploče."
         },
         {
-          "title": "Bez papirnatih kartica",
-          "description": "Kartica vjernosti živi u mobitelu kupca — ne gubi se, ne cijepa se, uvijek je pri ruci, spremna za skeniranje u sekundi."
+          "title": "Skeniranje u par sekundi",
+          "description": "Zaposlenik skenira QR kod kupca, bodovi i pečati se pribrajaju automatski."
         },
         {
-          "title": "QR skeniranje u par sekundi",
-          "description": "Zaposlenik skenira kod, kupac dobiva bodove — bez čekanja na blagajni i bez ručnog upisivanja u bilježnicu."
+          "title": "Marketing na autopilotu",
+          "description": "Rođendanski popusti, kampanje i podsjetnici šalju se sami, bez tvoje intervencije."
         },
         {
-          "title": "Automatski marketing",
-          "description": "Rođendanski popusti, kampanje i podsjetnici šalju se sami, bez tvoje intervencije — dok ti vodiš posao."
+          "title": "Bez papirologije",
+          "description": "Sve što se prije vodilo u bilježnici sad živi u jednoj preglednoj aplikaciji."
+        }
+      ]
+    },
+    "forCustomers": {
+      "eyebrow": "Za kupce",
+      "title": "Sve tvoje kartice vjernosti na jednom mjestu",
+      "subtitle": "Bez preuzimanja aplikacije, bez gubljenja kartica — sve što skupljaš vidiš uživo na mobitelu.",
+      "items": [
+        {
+          "title": "Uvijek u mobitelu",
+          "description": "Kartica se otvara izravno u pregledniku, bez preuzimanja ikakve aplikacije."
         },
         {
-          "title": "Uvid u poslovanje",
-          "description": "Nadzorna ploča ti pokazuje tko su tvoji najvjerniji kupci, koliko se često vraćaju i koje nagrade najviše vole."
+          "title": "Skeniraj i skupljaj",
+          "description": "Bodovi i pečati se pribrajaju odmah nakon skeniranja QR koda."
         },
         {
-          "title": "Preporuke prijatelja",
-          "description": "Zadovoljni kupci dovode nove kupce kroz ugrađeni referral program — oboje dobivaju nagradu, ti dobivaš novog stalnog gosta."
+          "title": "Obavijesti o nagradama",
+          "description": "Kupac zna čim je osvojio besplatnu kavu, popust ili drugu nagradu."
+        },
+        {
+          "title": "Nagrade na dohvat ruke",
+          "description": "Pregled svih dostupnih nagrada i napretka do sljedeće, na jednom mjestu."
+        }
+      ]
+    },
+    "featureGrid": {
+      "eyebrow": "Značajke",
+      "title": "Sve što jednom loyalty programu treba",
+      "subtitle": "Od fleksibilnih pravila bodovanja do automatskog marketinga — LoyalFlow pokriva cijeli životni vijek tvog programa vjernosti.",
+      "items": [
+        {
+          "title": "Fleksibilna pravila bodovanja",
+          "description": "Bodovi po posjeti, po potrošenom iznosu ili kombinacija oboje — po tvom izboru."
+        },
+        {
+          "title": "Popusti ili besplatni proizvodi",
+          "description": "Nagrade postavi kao postotak popusta ili kao potpuno besplatan proizvod."
+        },
+        {
+          "title": "Rok trajanja kartice",
+          "description": "Postavi rok nakon kojeg se bodovi ponište, a kartica automatski istekne."
+        },
+        {
+          "title": "QR skeniranje",
+          "description": "Trenutno skeniranje na blagajni, bez ručnog upisivanja u bilježnicu."
+        },
+        {
+          "title": "Prilagođen izgled kartice",
+          "description": "Postavi vlastitu pozadinsku sliku kartice ili logotip tvrtke."
+        },
+        {
+          "title": "Analitika i izvještaji",
+          "description": "Uvid u posjete, bodove i najvjernije kupce u stvarnom vremenu."
         },
         {
           "title": "Rođendanske nagrade",
-          "description": "Automatski pošalji poseban poklon na rođendan kupca — mali gest koji ostavlja dojam i potiče dodatnu posjetu."
+          "description": "Automatski pošalji poseban poklon na rođendan svakog kupca."
         },
         {
-          "title": "Bedževi i razine",
-          "description": "Bronca, srebro, zlato, platina — kupci se natječu za status, a ti dobivaš sve angažiranije stalne goste."
+          "title": "Program preporuka",
+          "description": "Zadovoljni kupci dovode nove kupce, a oboje dobivaju nagradu."
+        },
+        {
+          "title": "Promo kodovi",
+          "description": "Kreiraj vremenski ograničene promocije za posebne prigode."
+        },
+        {
+          "title": "Direktorij tvrtki",
+          "description": "Kupci pronalaze tvrtke po djelatnosti i gradu u par klikova."
+        },
+        {
+          "title": "Sigurni podaci",
+          "description": "Podaci kupaca čuvaju se sigurno, uz stroga pravila pristupa."
+        },
+        {
+          "title": "Tamna tema",
+          "description": "Ugodno korištenje danju i noću, na dashboardu i kod kupaca."
         }
       ]
     },
@@ -134,6 +207,146 @@
         }
       ]
     },
+    "previews": {
+      "dashboard": {
+        "eyebrow": "Nadzorna ploča",
+        "title": "Cijeli posao na jednom mjestu",
+        "subtitle": "Prati kupce, posjete i nagrade u stvarnom vremenu — bez tablica, bez ručnog zbrajanja.",
+        "bullets": [
+          "Broj kupaca i aktivnih kartica na prvi pogled",
+          "Posjete po danu, tjednu ili mjesecu u jednom grafikonu",
+          "Sve promjene vidljive odmah, bez osvježavanja stranice"
+        ],
+        "customers": "Kupci",
+        "activeCards": "Aktivne kartice",
+        "todayVisits": "Posjete danas",
+        "rewards": "Nagrade"
+      },
+      "customer": {
+        "eyebrow": "Iskustvo kupca",
+        "title": "Kupcu sve na dlanu, bez ijedne nove aplikacije",
+        "subtitle": "Kartica se otvara u pregledniku mobitela — kupac odmah vidi bodove, napredak i nagrade koje ga čekaju.",
+        "bullets": [
+          "QR kod uvijek spreman za skeniranje",
+          "Napredak do sljedeće nagrade u stvarnom vremenu",
+          "Radi identično na svim uređajima i preglednicima"
+        ],
+        "stampProgram": "Kartica s pečatima",
+        "stampGoal": "do besplatne kave",
+        "pointsProgram": "Kartica s bodovima",
+        "pointsLabel": "Bodovi",
+        "pointsGoal": "do popusta 20%"
+      },
+      "analytics": {
+        "eyebrow": "Analitika",
+        "title": "Brojke koje ti pomažu donositi odluke",
+        "subtitle": "Vidi koliko bodova kupci zarađuju i troše, koliko novih kupaca stižeš svaki tjedan, i gdje je prostor za rast.",
+        "bullets": [
+          "Trend bodova zarađenih i iskorištenih kroz vrijeme",
+          "Broj novih kupaca po tjednu",
+          "Pregled podataka kad god ti zatrebaju"
+        ],
+        "pointsEarned": "Bodovi zarađeni",
+        "pointsRedeemed": "Bodovi iskorišteni",
+        "newCustomers": "Novi kupci"
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Iskustva",
+      "title": "Obrtnici koji su prešli na digitalne kartice",
+      "items": [
+        {
+          "quote": "Kupci se vraćaju češće otkad imamo digitalnu karticu. Više ne moram ručno bilježiti tko je koliko popio kava.",
+          "name": "Marko P.",
+          "role": "Vlasnik, Kafić Aroma",
+          "initials": "MP"
+        },
+        {
+          "quote": "Postavljanje je trajalo pet minuta. Sad automatski šaljem rođendanske popuste i to se stvarno isplati.",
+          "name": "Ivana K.",
+          "role": "Vlasnica, Salon Bella",
+          "initials": "IK"
+        },
+        {
+          "quote": "Nadzorna ploča mi pokazuje tko su naši najvjerniji članovi. To mi pomaže planirati akcije unaprijed.",
+          "name": "Tomislav B.",
+          "role": "Vlasnik, Fit Studio",
+          "initials": "TB"
+        },
+        {
+          "quote": "Kupci vole što ne moraju nositi papirnatu karticu. Sve im stiže izravno na mobitel.",
+          "name": "Ana M.",
+          "role": "Vlasnica, Pekarnica Zlatno zrno",
+          "initials": "AM"
+        },
+        {
+          "quote": "Skeniranje na blagajni traje par sekundi. Osoblju je puno lakše nego s papirnatim karticama.",
+          "name": "Luka V.",
+          "role": "Vlasnik, Autopraonica Sjaj",
+          "initials": "LV"
+        },
+        {
+          "quote": "Program preporuka nam je doveo desetke novih pacijenata bez ijedne kune uložene u oglašavanje.",
+          "name": "Petra D.",
+          "role": "Vlasnica, Dental Care Studio",
+          "initials": "PD"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Česta pitanja",
+      "title": "Sve što te zanima o LoyalFlowu",
+      "items": [
+        {
+          "question": "Trebam li tehničko znanje da postavim LoyalFlow?",
+          "answer": "Ne. Registracija traje par minuta, a program vjernosti postavljaš kroz jednostavne obrasce, bez potrebe za programiranjem ili vanjskim agencijama."
+        },
+        {
+          "question": "Mora li kupac preuzeti aplikaciju?",
+          "answer": "Ne, kartica se otvara izravno u pregledniku mobitela. Kupac je dobiva skeniranjem QR koda ili klikom na poveznicu."
+        },
+        {
+          "question": "Mogu li birati hoće li kupci skupljati bodove ili pečate?",
+          "answer": "Da. Za svaki program vjernosti biraš tip nagrađivanja — bodovi po posjeti, bodovi po potrošenom iznosu ili kombinacija oboje."
+        },
+        {
+          "question": "Što se događa kad kartici istekne rok?",
+          "answer": "Ako postaviš rok trajanja, bodovi se automatski ponište, a kartica prestaje vrijediti — kupac o tome dobiva jasnu obavijest."
+        },
+        {
+          "question": "Mogu li nagrade postaviti kao popust, a ne samo besplatan proizvod?",
+          "answer": "Da, svaku nagradu možeš postaviti kao postotak popusta ili kao potpuno besplatan proizvod, ovisno o tome što tvom poslovanju najviše odgovara."
+        },
+        {
+          "question": "Koliko brzo mogu početi koristiti LoyalFlow?",
+          "answer": "Registracija i postavljanje prvog programa vjernosti traje oko pet minuta. Odmah nakon toga možeš dijeliti karticu s kupcima."
+        },
+        {
+          "question": "Je li besplatno za početak?",
+          "answer": "Da, možeš započeti besplatno bez unosa podataka kartice. Kad tvoj posao naraste, možeš nadograditi plan."
+        },
+        {
+          "question": "Mogu li imati više programa vjernosti u isto vrijeme?",
+          "answer": "Da, jedna tvrtka može imati više programa vjernosti istovremeno — na primjer poseban program za kavu i poseban za tretmane."
+        },
+        {
+          "question": "Kako kupci pronalaze moju tvrtku?",
+          "answer": "Tvrtke se prikazuju u javnom direktoriju koji kupci mogu pretraživati po djelatnosti i gradu."
+        },
+        {
+          "question": "Jesu li podaci mojih kupaca sigurni?",
+          "answer": "Da, svi podaci pohranjuju se sigurno uz stroga pravila pristupa, u skladu sa suvremenim standardima zaštite podataka."
+        },
+        {
+          "question": "Mogu li otkazati u bilo kojem trenutku?",
+          "answer": "Da, nema ugovorne obveze — svoj račun možeš zatvoriti kad god poželiš."
+        },
+        {
+          "question": "Radi li LoyalFlow na svim uređajima?",
+          "answer": "Da, aplikacija radi identično na mobitelu, tabletu i računalu, u svakom modernom pregledniku."
+        }
+      ]
+    },
     "cta": {
       "title": "Spreman da tvoji kupci postanu stalni gosti?",
       "subtitle": "Pridruži se obrtnicima koji su papirnate kartice zamijenili digitalnim iskustvom koje kupci vole koristiti.",
@@ -146,7 +359,10 @@
       "company": "Tvrtka",
       "contact": "Kontakt",
       "rights": "Sva prava pridržana.",
-      "madeFor": "Napravljeno za male obrtnike, s ljubavlju."
+      "madeFor": "Napravljeno za male obrtnike, s ljubavlju.",
+      "newsletterTitle": "Budi u tijeku",
+      "newsletterSubtitle": "Povremene novosti o novim značajkama. Bez spama.",
+      "newsletterButton": "Prijavi se"
     }
   },
   "business": {

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { CheckBadgeIcon } from '@heroicons/vue/24/outline'
 import { onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import LoyaltyCardVisual from '@/components/ui/LoyaltyCardVisual.vue'
+import { useHeroStampAnimation } from '@/composables/useHeroStampAnimation'
 
 const { t } = useI18n()
 
@@ -12,6 +14,20 @@ onMounted(() => {
     isMounted.value = true
   })
 })
+
+const BASE_POINTS = 180
+const { phase, points, cycleCount, prefersReducedMotion } = useHeroStampAnimation(BASE_POINTS, 40)
+
+const particles = [
+  { x: '48px', y: '-14px', delay: '0ms' },
+  { x: '40px', y: '30px', delay: '40ms' },
+  { x: '4px', y: '50px', delay: '90ms' },
+  { x: '-36px', y: '32px', delay: '60ms' },
+  { x: '-48px', y: '-12px', delay: '110ms' },
+  { x: '-26px', y: '-42px', delay: '70ms' },
+  { x: '4px', y: '-54px', delay: '20ms' },
+  { x: '32px', y: '-40px', delay: '130ms' },
+]
 </script>
 
 <template>
@@ -52,7 +68,7 @@ onMounted(() => {
           <div class="mt-10 flex flex-wrap items-center gap-6">
             <RouterLink
               to="/auth/register"
-              class="rounded-full bg-accent-600 px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-white shadow-soft-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent-700"
+              class="btn-ripple rounded-full bg-brand-600 px-7 py-3.5 text-xs font-semibold uppercase tracking-widest text-white shadow-soft-lg transition-all duration-200 hover:-translate-y-0.5 hover:bg-brand-700"
             >
               {{ t('landing.hero.ctaPrimary') }}
             </RouterLink>
@@ -77,17 +93,61 @@ onMounted(() => {
           :class="{ 'reveal-visible': isMounted }"
           style="transition-delay: 150ms"
         >
-          <div class="w-full max-w-sm">
-            <LoyaltyCardVisual
-              variant="hero"
-              glass
-              :business-name="t('landing.hero.card.business')"
-              :badge-label="t('landing.hero.card.member')"
-              :value="Number(t('landing.hero.card.points'))"
-              :value-label="t('landing.hero.card.pointsLabel')"
-              :goal="240"
-              :goal-label="`${t('landing.hero.card.progressLabel')} · ${t('landing.hero.card.reward')}`"
-            />
+          <div class="relative w-full max-w-sm">
+            <Transition
+              enter-active-class="transition duration-300 ease-out"
+              enter-from-class="opacity-0 scale-75"
+              enter-to-class="opacity-100 scale-100"
+              leave-active-class="transition duration-300 ease-in"
+              leave-from-class="opacity-100 scale-100"
+              leave-to-class="opacity-0 scale-75"
+            >
+              <div
+                v-if="phase !== 'idle'"
+                :key="cycleCount"
+                class="absolute -top-9 right-6 z-20 flex h-16 w-16 items-center justify-center rounded-full border-4 border-dashed border-white/70 bg-accent-500 text-white shadow-soft-lg"
+                :class="phase === 'falling' ? 'animate-stamp-fall' : 'rotate-[-8deg]'"
+              >
+                <CheckBadgeIcon class="h-8 w-8" />
+              </div>
+            </Transition>
+
+            <div
+              v-if="phase === 'burst'"
+              :key="`particles-${cycleCount}`"
+              class="pointer-events-none absolute inset-0 z-10 flex items-center justify-center"
+            >
+              <span
+                v-for="(particle, index) in particles"
+                :key="index"
+                class="absolute h-2 w-2 animate-particle-burst rounded-full bg-accent-300"
+                :style="{
+                  '--particle-x': particle.x,
+                  '--particle-y': particle.y,
+                  animationDelay: particle.delay,
+                }"
+              />
+            </div>
+
+            <div
+              class="rounded-3xl"
+              :class="{
+                'animate-stamp-pop': phase === 'impact' && !prefersReducedMotion,
+                'animate-card-glow-pulse': phase === 'glow' && !prefersReducedMotion,
+                'shadow-glow-accent': phase === 'glow' && prefersReducedMotion,
+              }"
+            >
+              <LoyaltyCardVisual
+                variant="hero"
+                glass
+                :business-name="t('landing.hero.card.business')"
+                :badge-label="t('landing.hero.card.member')"
+                :value="points"
+                :value-label="t('landing.hero.card.pointsLabel')"
+                :goal="240"
+                :goal-label="`${t('landing.hero.card.progressLabel')} · ${t('landing.hero.card.reward')}`"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -22,9 +22,10 @@
   },
   "landing": {
     "nav": {
-      "benefits": "Benefits",
+      "why": "Why us",
       "howItWorks": "How it works",
-      "audience": "Who it's for",
+      "features": "Features",
+      "faq": "FAQ",
       "login": "Log in",
       "cta": "Try it for free"
     },
@@ -57,58 +58,130 @@
         { "value": "24", "suffix": "/7", "label": "automatic marketing and reminders" }
       ]
     },
-    "audience": {
-      "title": "Who LoyalFlow is for",
-      "subtitle": "If you have customers who come back, LoyalFlow helps you keep them — whatever your business.",
-      "items": [
-        { "label": "Cafés" },
-        { "label": "Restaurants" },
-        { "label": "Hair salons" },
-        { "label": "Beauty salons" },
-        { "label": "Gyms & fitness" },
-        { "label": "Car washes" },
-        { "label": "Auto repair shops" },
-        { "label": "Bakeries & patisseries" },
-        { "label": "Hotels & apartments" },
-        { "label": "Dental clinics" }
-      ],
-      "more": "...and any service business with returning customers."
+    "logoCloud": {
+      "title": "Built for every service business",
+      "industries": {
+        "cafes": "Cafés",
+        "restaurants": "Restaurants",
+        "salons": "Hair salons",
+        "beauty": "Beauty salons",
+        "gyms": "Gyms",
+        "carwash": "Car washes",
+        "hotels": "Hotels",
+        "wellness": "Wellness & spa"
+      }
     },
-    "benefits": {
-      "title": "Why small businesses switch to LoyalFlow",
-      "subtitle": "Everything you need to turn occasional customers into regulars — no extra staff or technical skills required.",
+    "why": {
+      "eyebrow": "Why go digital",
+      "title": "All the upside of a loyalty card, none of the downsides",
+      "subtitle": "Customers already expect a digital experience. LoyalFlow gives them one, and takes the admin work off your plate.",
+      "items": [
+        "No paper cards that get lost, torn, or left at home",
+        "The card always lives on the customer's phone, ready to scan in seconds",
+        "Eco-friendly — no printing, no paper waste",
+        "Customers track points, stamps, and progress toward the next reward live",
+        "Reminders and birthday perks are sent out completely automatically",
+        "One app for all your loyalty programs, on every device"
+      ]
+    },
+    "forBusiness": {
+      "eyebrow": "For business owners",
+      "title": "Everything you need to run a loyalty program hassle-free",
+      "subtitle": "A dashboard, automated marketing, and real business insight — no extra staff or technical skills required.",
       "items": [
         {
-          "title": "Stronger customer loyalty",
-          "description": "Points, stamps, and rewards give customers a reason to come back instead of going to a competitor. Every visit is a step closer to the next reward."
+          "title": "Real-time analytics",
+          "description": "Track visits, points, and your most loyal customers from a single, clear dashboard."
         },
         {
-          "title": "No more paper cards",
-          "description": "The loyalty card lives on the customer's phone — it can't get lost or torn, and it's always ready to scan in seconds."
-        },
-        {
-          "title": "QR scan in seconds",
-          "description": "Staff scan the code, the customer earns points — no waiting at the register and no writing it down by hand."
+          "title": "Scan in seconds",
+          "description": "Staff scan the customer's QR code, points and stamps are added automatically."
         },
         {
           "title": "Marketing on autopilot",
-          "description": "Birthday discounts, campaigns, and reminders go out automatically, with no extra work from you — while you run your business."
+          "description": "Birthday discounts, campaigns, and reminders go out automatically, with no work from you."
         },
         {
-          "title": "Real business insight",
-          "description": "A dashboard shows you who your most loyal customers are, how often they return, and which rewards they love most."
+          "title": "No more paperwork",
+          "description": "Everything that used to live in a notebook now lives in one clear app."
+        }
+      ]
+    },
+    "forCustomers": {
+      "eyebrow": "For customers",
+      "title": "All your loyalty cards in one place",
+      "subtitle": "No app to download, no cards to lose — everything you're earning shows up live on your phone.",
+      "items": [
+        {
+          "title": "Always on your phone",
+          "description": "The card opens straight in the browser, with no app to download."
         },
         {
-          "title": "Friend referrals",
-          "description": "Happy customers bring new customers through the built-in referral program — both get rewarded, you get a new regular."
+          "title": "Scan and collect",
+          "description": "Points and stamps are added the moment your QR code is scanned."
+        },
+        {
+          "title": "Reward notifications",
+          "description": "You'll know the second you've earned a free coffee, a discount, or another reward."
+        },
+        {
+          "title": "Rewards within reach",
+          "description": "See every available reward and your progress toward the next one, in one place."
+        }
+      ]
+    },
+    "featureGrid": {
+      "eyebrow": "Features",
+      "title": "Everything a loyalty program needs",
+      "subtitle": "From flexible earning rules to automated marketing — LoyalFlow covers the entire lifecycle of your loyalty program.",
+      "items": [
+        {
+          "title": "Flexible earning rules",
+          "description": "Points per visit, per amount spent, or a combination of both — your choice."
+        },
+        {
+          "title": "Discounts or free items",
+          "description": "Set rewards as a percentage discount or as a fully free item."
+        },
+        {
+          "title": "Card expiry",
+          "description": "Set an expiry date after which points are voided and the card retires automatically."
+        },
+        {
+          "title": "QR scanning",
+          "description": "Instant scanning at the register, with no manual notebook entries."
+        },
+        {
+          "title": "Custom card design",
+          "description": "Set your own card background image or business logo."
+        },
+        {
+          "title": "Analytics & reports",
+          "description": "Real-time insight into visits, points, and your most loyal customers."
         },
         {
           "title": "Birthday rewards",
-          "description": "Automatically send a special gift on a customer's birthday — a small gesture that leaves an impression and drives an extra visit."
+          "description": "Automatically send a special gift on every customer's birthday."
         },
         {
-          "title": "Badges & tiers",
-          "description": "Bronze, silver, gold, platinum — customers compete for status, and you get increasingly engaged regulars."
+          "title": "Referral program",
+          "description": "Happy customers bring new ones, and both get rewarded."
+        },
+        {
+          "title": "Promo codes",
+          "description": "Create time-limited promotions for special occasions."
+        },
+        {
+          "title": "Business directory",
+          "description": "Customers find businesses by category and city in a couple of clicks."
+        },
+        {
+          "title": "Secure data",
+          "description": "Customer data is stored securely, with strict access rules."
+        },
+        {
+          "title": "Dark mode",
+          "description": "Comfortable to use day or night, on the dashboard and for customers."
         }
       ]
     },
@@ -134,6 +207,146 @@
         }
       ]
     },
+    "previews": {
+      "dashboard": {
+        "eyebrow": "Dashboard",
+        "title": "Your whole business in one place",
+        "subtitle": "Track customers, visits, and rewards in real time — no spreadsheets, no manual tallying.",
+        "bullets": [
+          "Customer and active card counts at a glance",
+          "Visits by day, week, or month in a single chart",
+          "Every change visible instantly, with no page refresh"
+        ],
+        "customers": "Customers",
+        "activeCards": "Active cards",
+        "todayVisits": "Today's visits",
+        "rewards": "Rewards"
+      },
+      "customer": {
+        "eyebrow": "Customer experience",
+        "title": "Everything on hand, with no new app to install",
+        "subtitle": "The card opens in the phone's browser — customers instantly see points, progress, and the rewards waiting for them.",
+        "bullets": [
+          "QR code always ready to scan",
+          "Progress to the next reward, updated live",
+          "Works identically on every device and browser"
+        ],
+        "stampProgram": "Stamp card",
+        "stampGoal": "to a free coffee",
+        "pointsProgram": "Points card",
+        "pointsLabel": "Points",
+        "pointsGoal": "to a 20% discount"
+      },
+      "analytics": {
+        "eyebrow": "Analytics",
+        "title": "Numbers that help you make decisions",
+        "subtitle": "See how many points customers earn and redeem, how many new customers you get each week, and where there's room to grow.",
+        "bullets": [
+          "Trend of points earned and redeemed over time",
+          "New customers per week",
+          "Data available whenever you need it"
+        ],
+        "pointsEarned": "Points earned",
+        "pointsRedeemed": "Points redeemed",
+        "newCustomers": "New customers"
+      }
+    },
+    "testimonials": {
+      "eyebrow": "Testimonials",
+      "title": "Small businesses that switched to digital cards",
+      "items": [
+        {
+          "quote": "Customers come back more often since we switched to a digital card. I no longer have to track who's had how many coffees by hand.",
+          "name": "Marko P.",
+          "role": "Owner, Aroma Café",
+          "initials": "MP"
+        },
+        {
+          "quote": "Setup took five minutes. Now birthday discounts go out automatically, and it genuinely pays off.",
+          "name": "Ivana K.",
+          "role": "Owner, Salon Bella",
+          "initials": "IK"
+        },
+        {
+          "quote": "The dashboard shows me who our most loyal members are. It helps me plan promotions ahead of time.",
+          "name": "Tomislav B.",
+          "role": "Owner, Fit Studio",
+          "initials": "TB"
+        },
+        {
+          "quote": "Customers love not having to carry a paper card. Everything reaches them straight on their phone.",
+          "name": "Ana M.",
+          "role": "Owner, Golden Grain Bakery",
+          "initials": "AM"
+        },
+        {
+          "quote": "Scanning at the register takes a couple of seconds. It's so much easier for staff than paper cards.",
+          "name": "Luka V.",
+          "role": "Owner, Shine Car Wash",
+          "initials": "LV"
+        },
+        {
+          "quote": "The referral program brought us dozens of new patients without spending a cent on ads.",
+          "name": "Petra D.",
+          "role": "Owner, Dental Care Studio",
+          "initials": "PD"
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Everything you want to know about LoyalFlow",
+      "items": [
+        {
+          "question": "Do I need technical skills to set up LoyalFlow?",
+          "answer": "No. Registration takes a couple of minutes, and you set up your loyalty program through simple forms — no coding or agencies required."
+        },
+        {
+          "question": "Does the customer need to download an app?",
+          "answer": "No, the card opens directly in the phone's browser. Customers get it by scanning a QR code or clicking a link."
+        },
+        {
+          "question": "Can I choose whether customers earn points or stamps?",
+          "answer": "Yes. For each loyalty program you choose the earning type — points per visit, points per amount spent, or a combination of both."
+        },
+        {
+          "question": "What happens when a card expires?",
+          "answer": "If you set an expiry period, points are voided automatically and the card stops working — the customer gets a clear notice about it."
+        },
+        {
+          "question": "Can rewards be a discount instead of just a free item?",
+          "answer": "Yes, every reward can be set up as a percentage discount or as a fully free item, whichever suits your business best."
+        },
+        {
+          "question": "How quickly can I start using LoyalFlow?",
+          "answer": "Registering and setting up your first loyalty program takes about five minutes. You can start sharing the card with customers right after."
+        },
+        {
+          "question": "Is it free to get started?",
+          "answer": "Yes, you can start for free with no card details required. As your business grows, you can upgrade your plan."
+        },
+        {
+          "question": "Can I run more than one loyalty program at the same time?",
+          "answer": "Yes, a single business can run several loyalty programs at once — for example one for coffee and a separate one for treatments."
+        },
+        {
+          "question": "How do customers find my business?",
+          "answer": "Businesses appear in a public directory that customers can search by category and city."
+        },
+        {
+          "question": "Is my customers' data safe?",
+          "answer": "Yes, all data is stored securely with strict access rules, in line with modern data protection standards."
+        },
+        {
+          "question": "Can I cancel at any time?",
+          "answer": "Yes, there's no contractual lock-in — you can close your account whenever you like."
+        },
+        {
+          "question": "Does LoyalFlow work on every device?",
+          "answer": "Yes, the app works identically on mobile, tablet, and desktop, in every modern browser."
+        }
+      ]
+    },
     "cta": {
       "title": "Ready to turn your customers into regulars?",
       "subtitle": "Join the small businesses that replaced paper cards with a digital experience customers love using.",
@@ -146,7 +359,10 @@
       "company": "Company",
       "contact": "Contact",
       "rights": "All rights reserved.",
-      "madeFor": "Made for small businesses, with care."
+      "madeFor": "Made for small businesses, with care.",
+      "newsletterTitle": "Stay in the loop",
+      "newsletterSubtitle": "Occasional news about new features. No spam.",
+      "newsletterButton": "Subscribe"
     }
   },
   "business": {

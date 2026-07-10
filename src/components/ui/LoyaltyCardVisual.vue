@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { QrCodeIcon } from '@heroicons/vue/24/outline'
-import { computed } from 'vue'
+import { computed, toRef } from 'vue'
 
 import ProgressRing from '@/components/ui/ProgressRing.vue'
+import { useNumberChangeAnimation } from '@/composables/useNumberChangeAnimation'
 
 const GRADIENT_PRESETS = [
   'from-brand-600 to-accent-500',
@@ -76,6 +77,8 @@ const shapeClass = computed(() =>
 )
 
 const ringSize = computed(() => (props.variant === 'compact' ? 44 : 88))
+
+const { isPulsing } = useNumberChangeAnimation(toRef(props, 'value'))
 </script>
 
 <template>
@@ -125,7 +128,13 @@ const ringSize = computed(() => (props.variant === 'compact' ? 44 : 88))
       <div class="mt-6 flex items-end justify-between gap-4">
         <div class="min-w-0">
           <p v-if="valueLabel" class="text-xs text-white/50">{{ valueLabel }}</p>
-          <p class="font-display font-bold" :class="isDetail ? 'text-5xl' : 'text-3xl'">
+          <p
+            class="font-display font-bold transition-transform duration-300"
+            :class="[
+              isDetail ? 'text-5xl' : 'text-3xl',
+              isPulsing ? 'scale-110 text-accent-300' : 'scale-100',
+            ]"
+          >
             {{ value }}
           </p>
         </div>
