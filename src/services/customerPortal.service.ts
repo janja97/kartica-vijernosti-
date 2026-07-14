@@ -9,16 +9,13 @@ import { ProfileRepository } from '@/repositories/ProfileRepository'
 import { QrCodeRepository } from '@/repositories/QrCodeRepository'
 import { RewardRedemptionRepository } from '@/repositories/RewardRedemptionRepository'
 import { RewardRepository } from '@/repositories/RewardRepository'
+import { createLoyaltyCardForProgram } from '@/services/shared/loyaltyCardCreation'
 import type {
   BusinessDetail,
   BusinessDirectoryItem,
   CardDetail,
   MyCard,
 } from '@/types/domain/card.types'
-
-function generateCardNumber(): string {
-  return `LF-${Math.random().toString(36).slice(2, 10).toUpperCase()}`
-}
 
 function isDue(expiresAt: string | null, status: string): boolean {
   return status === 'active' && expiresAt !== null && new Date(expiresAt).getTime() < Date.now()
@@ -79,19 +76,9 @@ export const customerPortalService = {
       )
     }
 
-    let card = await LoyaltyRepository.findCardByCustomerAndProgram(customer.id, programId)
+    let card = await LoyaltyRepository.findActiveCardByCustomerAndProgram(customer.id, programId)
     if (!card) {
-      const program = await LoyaltyProgramRepository.findById(programId)
-      const expiresAt = program?.expiry_days
-        ? new Date(Date.now() + program.expiry_days * 24 * 60 * 60 * 1000).toISOString()
-        : null
-      card = await LoyaltyRepository.createCard(
-        businessId,
-        customer.id,
-        programId,
-        generateCardNumber(),
-        expiresAt,
-      )
+      card = await createLoyaltyCardForProgram(businessId, customer.id, programId)
     }
 
     return card.id
@@ -103,23 +90,25 @@ export const customerPortalService = {
 
     const customerIds = customers.map((customer) => customer.id)
     let cards = await LoyaltyRepository.findCardsForCustomers(customerIds)
+    cards = cards.filter((card) => card.status !== 'completed')
     if (cards.length === 0) return []
 
     const dueForExpiry = cards.filter((card) => isDue(card.expires_at, card.status))
     if (dueForExpiry.length > 0) {
       await Promise.all(dueForExpiry.map((card) => LoyaltyRepository.expireCardIfDue(card.id)))
-      cards = await LoyaltyRepository.findCardsForCustomers(customerIds)
+      cards = (await LoyaltyRepository.findCardsForCustomers(customerIds)).filter(
+        (card) => card.status !== 'completed',
+      )
     }
 
     const businessIds = [...new Set(cards.map((card) => card.business_id))]
     const programIds = [...new Set(cards.map((card) => card.loyalty_program_id))]
-    const cardCustomerIds = [...new Set(cards.map((card) => card.customer_id))]
 
-    const [businesses, programs, rewardsByBusiness, qrCodes] = await Promise.all([
+    const [businesses, programs, rewardsByBusiness, qrCode] = await Promise.all([
       Promise.all(businessIds.map((id) => BusinessRepository.findById(id))),
       Promise.all(programIds.map((id) => LoyaltyProgramRepository.findById(id))),
       Promise.all(businessIds.map((id) => RewardRepository.listActiveForBusiness(id))),
-      Promise.all(cardCustomerIds.map((id) => QrCodeRepository.findByCustomer(id))),
+      QrCodeRepository.findByProfile(profileId),
     ])
     const businessById = new Map(businesses.filter((b) => b !== null).map((b) => [b.id, b]))
     const programById = new Map(programs.filter((p) => p !== null).map((p) => [p.id, p]))
@@ -129,9 +118,6 @@ export const customerPortalService = {
         rewardsByBusiness[index]?.find((reward) => reward.points_cost !== null)?.points_cost ??
           null,
       ]),
-    )
-    const qrCodeByCustomer = new Map(
-      cardCustomerIds.map((id, index) => [id, qrCodes[index]?.code ?? '']),
     )
 
     return cards.map((card) => ({
@@ -145,7 +131,7 @@ export const customerPortalService = {
       currentPoints: card.current_points,
       cardNumber: card.card_number,
       nextRewardThreshold: cheapestRewardByBusiness.get(card.business_id) ?? null,
-      qrCode: qrCodeByCustomer.get(card.customer_id) ?? '',
+      qrCode: qrCode?.code ?? '',
       isExpired: card.status === 'expired',
       expiresAt: card.expires_at,
     }))
@@ -153,7 +139,7 @@ export const customerPortalService = {
 
   async getCardDetail(cardId: string): Promise<CardDetail | null> {
     let card = await LoyaltyRepository.findCardById(cardId)
-    if (!card) return null
+    if (!card || card.status === 'completed') return null
 
     if (isDue(card.expires_at, card.status)) {
       await LoyaltyRepository.expireCardIfDue(card.id)
@@ -161,10 +147,12 @@ export const customerPortalService = {
       if (!card) return null
     }
 
+    const customer = await CustomerRepository.findById(card.customer_id)
+
     const [business, program, qrCode, rewards] = await Promise.all([
       BusinessRepository.findById(card.business_id),
       LoyaltyProgramRepository.findById(card.loyalty_program_id),
-      QrCodeRepository.findByCustomer(card.customer_id),
+      customer?.profile_id ? QrCodeRepository.findByProfile(customer.profile_id) : null,
       RewardRepository.listActiveForBusiness(card.business_id),
     ])
 
@@ -193,6 +181,7 @@ export const customerPortalService = {
         pointsCost: reward.points_cost,
         discountPercent: reward.discount_percent,
         isActive: reward.is_active,
+        isGoal: reward.is_goal,
         affordable: reward.points_cost !== null && card.current_points >= reward.points_cost,
       })),
     }

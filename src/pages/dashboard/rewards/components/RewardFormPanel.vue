@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 
 import LoyaltyCardVisual from '@/components/ui/LoyaltyCardVisual.vue'
 import { useCurrentBusiness } from '@/pages/dashboard/composables/useCurrentBusiness'
+import { useLoyaltyPrograms } from '@/pages/dashboard/programs/composables/useLoyaltyPrograms'
 import type { RewardCatalogItem } from '@/types/domain/reward.types'
 
 const props = defineProps<{
@@ -18,6 +19,8 @@ const emit = defineEmits<{
       pointsCost: number
       type: 'discount' | 'free_item'
       discountPercent: number | null
+      loyaltyProgramId: string
+      isGoal: boolean
     },
   ]
   cancel: []
@@ -25,6 +28,7 @@ const emit = defineEmits<{
 
 const { t } = useI18n()
 const { data: business } = useCurrentBusiness()
+const { data: programs } = useLoyaltyPrograms()
 
 const REWARD_TYPES = ['discount', 'free_item'] as const
 
@@ -37,11 +41,15 @@ const type = ref<'discount' | 'free_item'>(
 const discountPercent = ref(
   props.reward?.discountPercent ? String(props.reward.discountPercent) : '',
 )
+const loyaltyProgramId = ref(props.reward?.loyaltyProgramId ?? '')
+const isGoal = ref(props.reward?.isGoal ?? false)
 
 const previewGoal = computed(() => Math.max(Number.parseFloat(pointsCost.value) || 0, 1))
 const previewValue = computed(() => Math.round(previewGoal.value * 0.4))
 
 function handleSubmit(): void {
+  if (!loyaltyProgramId.value) return
+
   emit('save', {
     name: name.value,
     description: description.value || null,
@@ -51,6 +59,8 @@ function handleSubmit(): void {
       type.value === 'discount' && discountPercent.value
         ? Number.parseFloat(discountPercent.value)
         : null,
+    loyaltyProgramId: loyaltyProgramId.value,
+    isGoal: isGoal.value,
   })
 }
 </script>
@@ -61,6 +71,22 @@ function handleSubmit(): void {
       class="space-y-4 rounded-2xl border border-border bg-surface-raised p-5 shadow-soft"
       @submit.prevent="handleSubmit"
     >
+      <div>
+        <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+          {{ t('dashboard.rewards.form.program') }}
+        </label>
+        <select
+          v-model="loyaltyProgramId"
+          required
+          class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:text-white"
+        >
+          <option value="" disabled>{{ t('dashboard.rewards.form.programPlaceholder') }}</option>
+          <option v-for="program in programs ?? []" :key="program.id" :value="program.id">
+            {{ program.name }}
+          </option>
+        </select>
+      </div>
+
       <div>
         <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
           {{ t('dashboard.rewards.form.name') }}
@@ -132,6 +158,20 @@ function handleSubmit(): void {
           class="w-full rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-900 shadow-sm outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 dark:text-white"
         />
       </div>
+
+      <label
+        class="flex items-center gap-2.5 rounded-lg border border-border bg-surface px-3.5 py-2.5 text-sm text-slate-700 dark:text-slate-300"
+      >
+        <input
+          v-model="isGoal"
+          type="checkbox"
+          class="h-4 w-4 rounded border-border text-brand-600 focus:ring-brand-500/30"
+        />
+        {{ t('dashboard.rewards.form.isGoal') }}
+      </label>
+      <p class="-mt-2 text-xs text-slate-500 dark:text-slate-400">
+        {{ t('dashboard.rewards.form.isGoalHint') }}
+      </p>
 
       <div class="flex gap-3">
         <button

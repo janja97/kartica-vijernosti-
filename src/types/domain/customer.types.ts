@@ -4,4 +4,5 @@ export interface BusinessCustomer {
   email: string | null
   points: number
   joinedAt: string
+  isVerified: boolean
 }

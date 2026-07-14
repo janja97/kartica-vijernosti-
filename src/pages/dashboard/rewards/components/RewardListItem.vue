@@ -23,6 +23,12 @@ const { t } = useI18n()
       <div class="flex items-center gap-2">
         <h3 class="text-base font-semibold text-slate-900 dark:text-white">{{ reward.name }}</h3>
         <span
+          v-if="reward.isGoal"
+          class="rounded-full bg-success-50 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-success-700 dark:bg-success-500/10 dark:text-success-400"
+        >
+          {{ t('dashboard.rewards.goalLabel') }}
+        </span>
+        <span
           v-if="!reward.isActive"
           class="rounded-full bg-surface-sunken px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-400"
         >

@@ -433,6 +433,16 @@
       "success": "Lozinka je uspješno promijenjena. Preusmjeravamo te na prijavu..."
     }
   },
+  "customerEntry": {
+    "title": "Tvoja digitalna kartica",
+    "emailSubtitle": "Upiši email na koji smo ti poslali pristup, ili na koji ga želiš dobiti.",
+    "codeSubtitle": "Upiši 6-znamenkasti kod koji smo poslali na tvoj email.",
+    "emailLabel": "Email adresa",
+    "codeLabel": "Kod za potvrdu",
+    "sendCode": "Pošalji kod",
+    "verify": "Potvrdi",
+    "backToEmail": "Promijeni email adresu"
+  },
   "dashboard": {
     "nav": {
       "overview": "Pregled",
@@ -487,14 +497,29 @@
       "pendingRedemptions": "Zahtjevi za otkup",
       "confirmRedemption": "Potvrdi otkup",
       "scanAnother": "Skeniraj sljedećeg",
-      "expiredNotice": "Ova kartica je istekla i više ne prikuplja bodove."
+      "expiredNotice": "Ova kartica je istekla i više ne prikuplja bodove.",
+      "newCustomerNotice": "Ovaj korisnik prvi put dolazi kod tvoje tvrtke. Odaberi program kojem ga želiš pridružiti:",
+      "multipleCardsNotice": "Ovaj korisnik ima više kartica kod tvoje tvrtke. Odaberi na koju dodati bodove:",
+      "goalReached": "Kartica je popunjena — nagrada \"{reward}\" je spremna za iskorištavanje!",
+      "redeemGoal": "Iskoristi i pokreni novu karticu",
+      "goalRedeemed": "Nagrada iskorištena! Kupcu je pokrenuta nova kartica."
     },
     "customers": {
       "title": "Korisnici",
       "empty": "Još nemaš klijenata.",
       "nameColumn": "Ime",
       "pointsColumn": "Bodovi",
-      "joinedColumn": "Datum pridruživanja"
+      "joinedColumn": "Datum pridruživanja",
+      "newButton": "Dodaj kupca",
+      "pendingBadge": "Čeka potvrdu",
+      "form": {
+        "firstName": "Ime",
+        "lastName": "Prezime",
+        "email": "Email adresa",
+        "emailHint": "Kupac će na ovaj email dobiti kod za potvrdu i pristup svojoj digitalnoj kartici.",
+        "save": "Pošalji poziv",
+        "cancel": "Odustani"
+      }
     },
     "programs": {
       "title": "Programi vjernosti",
@@ -534,11 +559,16 @@
       "pendingTitle": "Zahtjevi za otkup",
       "pendingEmpty": "Trenutno nema zahtjeva za otkup.",
       "confirmButton": "Potvrdi",
+      "goalLabel": "Cilj",
       "form": {
+        "program": "Program vjernosti",
+        "programPlaceholder": "Odaberi program",
         "name": "Naziv",
         "description": "Opis",
         "descriptionPlaceholder": "Npr. Besplatna kava, 20% popusta na sljedeću kupnju...",
         "pointsCost": "Cijena u bodovima",
+        "isGoal": "Ovo je glavna nagrada (cilj) programa",
+        "isGoalHint": "Kad kupac dosegne ovu nagradu, osoblje na skeniranju može odmah ponuditi iskorištavanje i pokretanje nove kartice.",
         "save": "Spremi",
         "cancel": "Odustani",
         "previewTitle": "Pregled kartice",

@@ -10,6 +10,7 @@ export interface RewardCatalogItem {
   pointsCost: number | null
   discountPercent: number | null
   isActive: boolean
+  isGoal: boolean
 }
 
 export interface RewardOption extends RewardCatalogItem {

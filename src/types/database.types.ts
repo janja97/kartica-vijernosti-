@@ -24,7 +24,7 @@ export type BusinessCategory =
   | 'veterinary'
   | 'other'
 export type LoyaltyProgramType = 'points' | 'stamps' | 'vip' | 'tiers' | 'cashback' | 'custom'
-export type LoyaltyCardStatus = 'active' | 'expired' | 'suspended'
+export type LoyaltyCardStatus = 'active' | 'expired' | 'suspended' | 'completed'
 export type PointTransactionType =
   'earn' | 'redeem' | 'adjustment' | 'expire' | 'referral_bonus' | 'birthday_bonus'
 export type RedemptionStatus = 'pending' | 'approved' | 'rejected' | 'fulfilled'
@@ -311,8 +311,7 @@ export interface Database {
       qr_codes: {
         Row: {
           id: string
-          business_id: string
-          customer_id: string
+          profile_id: string
           code: string
           is_active: boolean
           last_scanned_at: string | null
@@ -321,8 +320,7 @@ export interface Database {
         }
         Insert: {
           id?: string
-          business_id: string
-          customer_id: string
+          profile_id: string
           code: string
           is_active?: boolean
           last_scanned_at?: string | null
@@ -376,6 +374,7 @@ export interface Database {
           cashback_amount: number | null
           stock_quantity: number | null
           is_active: boolean
+          is_goal: boolean
           valid_from: string | null
           valid_until: string | null
           created_at: string
@@ -395,6 +394,7 @@ export interface Database {
           cashback_amount?: number | null
           stock_quantity?: number | null
           is_active?: boolean
+          is_goal?: boolean
           valid_from?: string | null
           valid_until?: string | null
         }
@@ -574,6 +574,24 @@ export interface Database {
       expire_loyalty_card_if_due: {
         Args: { target_card_id: string }
         Returns: undefined
+      }
+      scan_resolve_profile: {
+        Args: { target_code: string; target_business_id: string }
+        Returns: {
+          profile_id: string
+          first_name: string | null
+          last_name: string | null
+          email: string
+          already_customer: boolean
+        }[]
+      }
+      claim_guest_customers: {
+        Args: Record<string, never>
+        Returns: number
+      }
+      redeem_goal_and_reset_card: {
+        Args: { target_card_id: string; target_reward_id: string; target_redeemed_by: string }
+        Returns: Database['public']['Tables']['loyalty_cards']['Row']
       }
     }
     Enums: {

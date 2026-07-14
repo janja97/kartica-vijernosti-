@@ -18,6 +18,7 @@ function toDomain(row: RewardCatalogRow): RewardCatalogItem {
     pointsCost: row.points_cost,
     discountPercent: row.discount_percent,
     isActive: row.is_active,
+    isGoal: row.is_goal,
   }
 }
 
@@ -27,7 +28,17 @@ export interface RewardInput {
   pointsCost: number
   type: 'discount' | 'free_item'
   discountPercent: number | null
+  loyaltyProgramId: string
+  isGoal?: boolean
   isActive?: boolean
+}
+
+async function clearExistingGoal(businessId: string, programId: string): Promise<void> {
+  const rewards = await RewardRepository.listForBusiness(businessId)
+  const currentGoal = rewards.find((r) => r.loyalty_program_id === programId && r.is_goal)
+  if (currentGoal) {
+    await RewardRepository.update(currentGoal.id, { is_goal: false })
+  }
 }
 
 export const rewardService = {
@@ -37,24 +48,40 @@ export const rewardService = {
   },
 
   async create(businessId: string, input: RewardInput): Promise<RewardCatalogItem> {
+    if (input.isGoal) {
+      await clearExistingGoal(businessId, input.loyaltyProgramId)
+    }
+
     const row = await RewardRepository.create({
       business_id: businessId,
+      loyalty_program_id: input.loyaltyProgramId,
       name: input.name,
       description: input.description,
       type: input.type,
       points_cost: input.pointsCost,
       discount_percent: input.discountPercent,
+      is_goal: input.isGoal ?? false,
     })
     return toDomain(row)
   },
 
-  async update(id: string, input: Partial<RewardInput>): Promise<RewardCatalogItem> {
+  async update(
+    id: string,
+    businessId: string,
+    input: Partial<RewardInput>,
+  ): Promise<RewardCatalogItem> {
+    if (input.isGoal && input.loyaltyProgramId) {
+      await clearExistingGoal(businessId, input.loyaltyProgramId)
+    }
+
     const row = await RewardRepository.update(id, {
       name: input.name,
       description: input.description,
       points_cost: input.pointsCost,
       type: input.type,
       discount_percent: input.discountPercent,
+      loyalty_program_id: input.loyaltyProgramId,
+      is_goal: input.isGoal,
       is_active: input.isActive,
     })
     return toDomain(row)
@@ -112,5 +139,9 @@ export const rewardService = {
       reference_type: 'redemption',
       reference_id: redemptionId,
     })
+  },
+
+  async redeemGoal(cardId: string, rewardId: string, redeemedBy: string) {
+    return LoyaltyRepository.redeemGoalAndReset(cardId, rewardId, redeemedBy)
   },
 }

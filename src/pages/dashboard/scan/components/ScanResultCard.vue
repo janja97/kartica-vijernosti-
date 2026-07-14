@@ -10,11 +10,13 @@ const props = defineProps<{
   result: ScanResult
   isRecordingVisit: boolean
   fulfillingRedemptionId: string | null
+  isRedeemingGoal: boolean
 }>()
 
 const emit = defineEmits<{
   recordVisit: [amountSpent: number | undefined]
   confirmRedemption: [redemptionId: string]
+  redeemGoal: []
 }>()
 
 const { t } = useI18n()
@@ -62,7 +64,24 @@ function handleRecordVisit(): void {
       {{ t('dashboard.scan.expiredNotice') }}
     </p>
 
-    <div v-else class="mt-5">
+    <div
+      v-if="!result.isExpired && result.isGoalReached && result.goalReward"
+      class="mt-4 rounded-xl border border-success-200 bg-success-50 px-4 py-3 dark:border-success-500/20 dark:bg-success-500/10"
+    >
+      <p class="text-sm font-semibold text-success-700 dark:text-success-400">
+        {{ t('dashboard.scan.goalReached', { reward: result.goalReward.name }) }}
+      </p>
+      <button
+        type="button"
+        :disabled="props.isRedeemingGoal"
+        class="mt-2.5 w-full rounded-lg bg-success-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-success-700 disabled:cursor-not-allowed disabled:opacity-60"
+        @click="emit('redeemGoal')"
+      >
+        {{ props.isRedeemingGoal ? t('common.loading') : t('dashboard.scan.redeemGoal') }}
+      </button>
+    </div>
+
+    <div v-if="!result.isExpired" class="mt-5">
       <label class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
         {{ t('dashboard.scan.amountLabel') }}
       </label>

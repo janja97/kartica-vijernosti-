@@ -91,4 +91,45 @@ export const CustomerRepository = {
     if (error) throw error
     return data
   },
+
+  async findByBusinessAndEmail(businessId: string, email: string): Promise<CustomerRow | null> {
+    const { data, error } = await supabase
+      .from('customers')
+      .select('*')
+      .eq('business_id', businessId)
+      .eq('email', email)
+      .maybeSingle()
+
+    if (error) throw error
+    return data
+  },
+
+  async createForBusiness(
+    businessId: string,
+    profileId: string | null,
+    firstName: string,
+    lastName: string | null,
+    email: string,
+  ): Promise<CustomerRow> {
+    const { data, error } = await supabase
+      .from('customers')
+      .insert({
+        business_id: businessId,
+        profile_id: profileId,
+        first_name: firstName,
+        last_name: lastName,
+        email,
+      })
+      .select()
+      .single()
+
+    if (error) throw error
+    return data
+  },
+
+  async claimGuestCustomers(): Promise<number> {
+    const { data, error } = await supabase.rpc('claim_guest_customers')
+    if (error) throw error
+    return data
+  },
 }

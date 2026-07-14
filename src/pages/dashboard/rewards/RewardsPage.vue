@@ -32,6 +32,8 @@ async function handleCreate(input: {
   pointsCost: number
   type: 'discount' | 'free_item'
   discountPercent: number | null
+  loyaltyProgramId: string
+  isGoal: boolean
 }): Promise<void> {
   const currentBusinessId = businessId()
   if (!currentBusinessId) return
@@ -52,12 +54,15 @@ async function handleUpdate(input: {
   pointsCost: number
   type: 'discount' | 'free_item'
   discountPercent: number | null
+  loyaltyProgramId: string
+  isGoal: boolean
 }): Promise<void> {
-  if (!editingReward.value) return
+  const currentBusinessId = businessId()
+  if (!editingReward.value || !currentBusinessId) return
 
   errorMessage.value = ''
   try {
-    await rewardService.update(editingReward.value.id, input)
+    await rewardService.update(editingReward.value.id, currentBusinessId, input)
     editingReward.value = null
     await invalidate()
   } catch (error) {
@@ -66,9 +71,12 @@ async function handleUpdate(input: {
 }
 
 async function handleToggleActive(reward: RewardCatalogItem): Promise<void> {
+  const currentBusinessId = businessId()
+  if (!currentBusinessId) return
+
   errorMessage.value = ''
   try {
-    await rewardService.update(reward.id, { isActive: !reward.isActive })
+    await rewardService.update(reward.id, currentBusinessId, { isActive: !reward.isActive })
     await invalidate()
   } catch (error) {
     errorMessage.value = getErrorMessage(error)

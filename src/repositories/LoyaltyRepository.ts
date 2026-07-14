@@ -18,7 +18,7 @@ export const LoyaltyRepository = {
     return data
   },
 
-  async findCardByCustomerAndProgram(
+  async findActiveCardByCustomerAndProgram(
     customerId: string,
     programId: string,
   ): Promise<LoyaltyCardRow | null> {
@@ -27,6 +27,7 @@ export const LoyaltyRepository = {
       .select('*')
       .eq('customer_id', customerId)
       .eq('loyalty_program_id', programId)
+      .in('status', ['active', 'suspended'])
       .maybeSingle()
 
     if (error) throw error
@@ -71,6 +72,21 @@ export const LoyaltyRepository = {
   async expireCardIfDue(cardId: string): Promise<void> {
     const { error } = await supabase.rpc('expire_loyalty_card_if_due', { target_card_id: cardId })
     if (error) throw error
+  },
+
+  async redeemGoalAndReset(
+    cardId: string,
+    rewardId: string,
+    redeemedBy: string,
+  ): Promise<LoyaltyCardRow> {
+    const { data, error } = await supabase.rpc('redeem_goal_and_reset_card', {
+      target_card_id: cardId,
+      target_reward_id: rewardId,
+      target_redeemed_by: redeemedBy,
+    })
+
+    if (error) throw error
+    return data
   },
 
   async insertPointTransaction(input: PointTransactionInsert): Promise<void> {

@@ -433,6 +433,16 @@
       "success": "Your password has been changed. Redirecting you to login..."
     }
   },
+  "customerEntry": {
+    "title": "Your digital card",
+    "emailSubtitle": "Enter the email you were invited with, or the one you'd like to use.",
+    "codeSubtitle": "Enter the 6-digit code we sent to your email.",
+    "emailLabel": "Email address",
+    "codeLabel": "Verification code",
+    "sendCode": "Send code",
+    "verify": "Verify",
+    "backToEmail": "Change email address"
+  },
   "dashboard": {
     "nav": {
       "overview": "Overview",
@@ -487,14 +497,29 @@
       "pendingRedemptions": "Pending redemptions",
       "confirmRedemption": "Confirm redemption",
       "scanAnother": "Scan next",
-      "expiredNotice": "This card has expired and no longer collects points."
+      "expiredNotice": "This card has expired and no longer collects points.",
+      "newCustomerNotice": "This customer is new to your business. Choose which program to join them to:",
+      "multipleCardsNotice": "This customer has multiple cards with your business. Choose which one to add points to:",
+      "goalReached": "Card complete — the \"{reward}\" reward is ready to redeem!",
+      "redeemGoal": "Redeem and start a fresh card",
+      "goalRedeemed": "Reward redeemed! A fresh card has started for this customer."
     },
     "customers": {
       "title": "Customers",
       "empty": "No customers yet.",
       "nameColumn": "Name",
       "pointsColumn": "Points",
-      "joinedColumn": "Joined"
+      "joinedColumn": "Joined",
+      "newButton": "Add customer",
+      "pendingBadge": "Pending",
+      "form": {
+        "firstName": "First name",
+        "lastName": "Last name",
+        "email": "Email address",
+        "emailHint": "The customer will get a verification code and access to their digital card at this email.",
+        "save": "Send invite",
+        "cancel": "Cancel"
+      }
     },
     "programs": {
       "title": "Loyalty programs",
@@ -534,11 +559,16 @@
       "pendingTitle": "Redemption requests",
       "pendingEmpty": "No pending redemption requests.",
       "confirmButton": "Confirm",
+      "goalLabel": "Goal",
       "form": {
+        "program": "Loyalty program",
+        "programPlaceholder": "Choose a program",
         "name": "Name",
         "description": "Description",
         "descriptionPlaceholder": "E.g. Free coffee, 20% off your next purchase...",
         "pointsCost": "Points cost",
+        "isGoal": "This is the program's main reward (goal)",
+        "isGoalHint": "Once a customer reaches this reward, staff can offer to redeem it and start a fresh card right from the scan screen.",
         "save": "Save",
         "cancel": "Cancel",
         "previewTitle": "Card preview",

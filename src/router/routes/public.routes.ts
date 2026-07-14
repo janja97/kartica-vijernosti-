@@ -12,4 +12,15 @@ export const publicRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: '/my-card',
+    component: () => import('@/layouts/AuthLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'customer-entry',
+        component: () => import('@/pages/customer/CustomerEntryPage.vue'),
+      },
+    ],
+  },
 ]
